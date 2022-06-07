@@ -1,4 +1,4 @@
 class VenueCategory < ApplicationRecord
-  belongs_to :venue
-  belongs_to :category
+  belongs_to :categories
+  belongs_to :venues
 end
