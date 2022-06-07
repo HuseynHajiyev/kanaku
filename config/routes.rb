@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :journeys, only: %i[edit update index]
+  resources :venues, only: %i[show new create edit update destroy]
+  resources :cities, only: %i[show]
+  # resources :users, only: %i[show edit update]
 end
