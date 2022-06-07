@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'venues/show'
-  get 'venues/new'
-  get 'venues/create'
-  get 'venues/edit'
-  get 'venues/update'
-  get 'venues/destroy'
   devise_for :users
   root to: 'pages#home'
-  resources :journeys, only: %i[edit update index]
-  resources :venues, only: %i[show new create edit update destroy]
-  resources :cities, only: %i[show]
+  resources :journeys do
+    resources :joutney_venues, only: %i[create]
+  end
+  resources :joutney_venues, only: %i[delete]
+  resources :venues
+  resources :cities, only: %i[index show]
   # resources :users, only: %i[show edit update]
 end
