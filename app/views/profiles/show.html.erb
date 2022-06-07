@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="user-card">
+    <%= image_tag @user.avatar, class: "user-avatar" %>
+    <h2><%= @user.user_name %></h2>
+    <%= link_to "edit profile", edit_user_registration_path, class: "btn btn-primary" %>
+    <div class="user-info">
+      <h4>Details</h4>
+      <p>Full name: <%= @user.first_name %> <%= @user.last_name %></p>
+      <p>Email: <%= @user.email %></p>
+      <h4>About me</h4>
+      <p><%= @user.about_me %></p>
+    </div>
+  </div>
+</div>
