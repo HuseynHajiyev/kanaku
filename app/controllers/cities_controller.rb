@@ -1,5 +1,9 @@
 class CitiesController < ApplicationController
   before_action :find_city, only: %i[show]
+  def index
+    @cities = City.all
+  end
+  
   def show; end
 
   private
