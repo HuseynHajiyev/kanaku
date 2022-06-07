@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
-  def show
-    @venue = Venue.find(params[:id])
-  end
+  before_action :find_venue, only: %i[edit show update destroy]
+
+  def show; end
 
   def new
     @venue = Venue.new
@@ -12,22 +12,22 @@ class VenuesController < ApplicationController
     @venue.save ? redirect_to(venue_path(@venue)) : render(:new)
   end
 
-  def edit
-    @venue = Venue.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @venue = Venue.find(params[:id])
     @venue.save ? redirect_to(venue_path(@venue)) : render(:new)
   end
 
   def destroy
-    @venue = Venue.find(params[:id])
     @venue.destroy
     redirect_to root_path
   end
 
   private
+
+  def find_venue
+    @venue = Venue.find(params[:id])
+  end
 
   def venue_params
     params.require(:venue).permit(:address, :description, :name)
