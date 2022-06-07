@@ -1,5 +1,10 @@
 class CitiesController < ApplicationController
-  def show
-    @cities = City.find(params[:id])
+  before_action :find_city, only: %i[show]
+  def show; end
+
+  private
+
+  def find_city
+    @city = City.find(params[:id])
   end
 end
