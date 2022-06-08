@@ -1,0 +1,68 @@
+.homepage-venue-card {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.venue-photo {
+  text-align: center;
+}
+
+.venue-name {
+  padding: 8px;
+}
+
+.venue-address {
+  padding: 8px;
+}
+
+.venue-description {
+  padding: 8px;
+}
+
+.venue-photo img {
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+.venues {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .venues {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .venues {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .venues {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .venues {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .venues {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
