@@ -1,8 +1,13 @@
+.journeys-container {
+  height: 90.5vh;
+  position: relative;
+}
+
 .venue-card {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 288px;
+  height: 180px;
   padding: 16px;
 }
 
@@ -42,4 +47,9 @@
 .venue-card-description-body {
   font-size: medium;
   font-weight: 300;
+}
+
+#main-button {
+  position: absolute;
+  bottom: 0;
 }
