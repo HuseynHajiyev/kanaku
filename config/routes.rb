@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
   resources :joutney_venues, only: %i[delete]
   resources :venues
-  resources :cities, only: %i[index show]
+  resources :cities, only: %i[index show new create]
   # resources :users, only: %i[show edit update]
 end

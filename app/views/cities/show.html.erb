@@ -17,3 +17,11 @@
         <img>
       </div>
 </div>
+
+<% if @city.photos.attached? %>
+  <% @city.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% else %>
+  <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+<% end %>
