@@ -1,16 +1,12 @@
-.map-border {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #6F594D;
-  border-radius: 5px;
-  height: 100%;
-  width: 100%;
-}
+// .map-border {
+//   border-width: 1px;
+//   border-style: solid;
+//   border-color: #6F594D;
+//   border-radius: 5px;
+// }
 
 .map {
   border-radius: 5px;
-  height: 100%;
-  width: auto;
 }
 
 .mapboxgl-popup img {
@@ -30,4 +26,8 @@
 .mapboxgl-popup {
   width: 500px;
   height: 300px;
+}
+
+.mapboxgl-map {
+  height: 100%;
 }
