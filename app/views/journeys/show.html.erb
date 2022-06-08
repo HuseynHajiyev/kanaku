@@ -1,7 +1,7 @@
 
-<div class="container p-0 m-0">
-<div class="journey-header">
-</div>
+<div class="container journeys-container p-0 m-0">
+  <div class="journey-header">
+  </div>
   <% @journey_venues.each do |venue| %>
     <div class="venue-card">
       <div class="venue-card-image" style="">
@@ -10,7 +10,11 @@
       <div class="venue-card-description">
         <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
         <p class="venue-card-description-body"><%= venue.description %></p>
+        <div class="d-flex justify-content-end">
+          <a href="#" class="btn btn-success">Remove</a>
+        </div>
       </div>
     </div>
   <% end %>
+  <a href="#" class="btn btn-success w-100" id="main-button">Confirm</a>
 </div>
