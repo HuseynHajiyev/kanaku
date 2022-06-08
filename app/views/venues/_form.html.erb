@@ -1,6 +1,7 @@
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
+  <%= f.association :city%>
   <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Create venue" %>
