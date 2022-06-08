@@ -1,6 +1,10 @@
 <div class="container">
   <div class="user-card">
-    <%= image_tag @user.avatar, class: "user-avatar" %>
+    <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar, class: "user-avatar" %>
+            <% else %>
+              <%= image_tag 'https://i.pinimg.com/originals/ce/b7/31/ceb731ddfc47f630168f1798a1c09e48.jpg', class: "user-avatar" %>
+            <% end %>
     <h2><%= @user.user_name %></h2>
     <%= link_to "edit profile", edit_user_registration_path, class: "btn btn-primary" %>
     <div class="user-info">
