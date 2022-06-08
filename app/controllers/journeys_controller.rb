@@ -1,11 +1,17 @@
 class JourneysController < ApplicationController
-  before_action :find_journey, only: %i[edit update]
+  before_action :find_journey, only: %i[edit update show]
 
   def index
-    @journeys = Journey.all
+    @journeys = current_user.journeys
+  end
+
+  def show
+    @journey_venues = @journey.venues
   end
 
   def edit; end
+
+  def new; end
 
   def update
     @journey.update(journey_params)
@@ -15,7 +21,7 @@ class JourneysController < ApplicationController
   private
 
   def find_journey
-    @journey = Journey.find(params[:id])
+    @journey = current_user.journeys.last
   end
 
   def journey_params

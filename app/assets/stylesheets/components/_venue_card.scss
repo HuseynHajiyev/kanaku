@@ -1,0 +1,45 @@
+.venue-card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 288px;
+  padding: 16px;
+}
+
+.venue-card-image {
+  width: 45%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  padding: 8px;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                    url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);
+}
+
+.venue-card-image-header {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  text-shadow: 0 0.5px #D3D3D3;
+  font-size: small;
+  font-weight: 500;
+}
+
+.venue-card-description {
+  width: 55%;
+  padding: 8px;
+  height: 100%;
+}
+
+.venue-card-description-header {
+  font-size: large;
+  font-weight: bold;
+}
+
+.venue-card-description-body {
+  font-size: medium;
+  font-weight: 300;
+}
