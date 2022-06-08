@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  get 'venues/show'
-  get 'venues/new'
-  get 'venues/create'
-  get 'venues/edit'
-  get 'venues/update'
-  get 'venues/destroy'
+  get "/journeys/:id/preview", to: "journeys#preview"
+  # get "maps", to: "Maps#show"
+
   devise_for :users
   root to: 'pages#home'
   resources :journeys, only: %i[edit update index]

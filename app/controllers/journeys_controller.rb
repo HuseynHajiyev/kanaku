@@ -7,6 +7,10 @@ class JourneysController < ApplicationController
 
   def edit; end
 
+  def preview
+    @journey = current_user.journeys.last
+  end
+
   def update
     @journey.update(journey_params)
     redirect_to journey_path(@journey)
