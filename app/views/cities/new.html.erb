@@ -1,7 +1,6 @@
-<%= simple_form_for @venue do |f| %>
+<%= simple_form_for @city do |f| %>
   <%= f.input :name %>
-  <%= f.input :address %>
   <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Create venue" %>
+  <%= f.submit "Create city" %>
 <% end %>
