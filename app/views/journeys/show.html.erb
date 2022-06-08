@@ -1,0 +1,16 @@
+
+<div class="container p-0 m-0">
+<div class="journey-header">
+</div>
+  <% @journey_venues.each do |venue| %>
+    <div class="venue-card">
+      <div class="venue-card-image" style="">
+        <p class="venue-card-image-header"><%= "#{venue.name.capitalize}'s view from front" %></p>
+      </div>
+      <div class="venue-card-description">
+        <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
+        <p class="venue-card-description-body"><%= venue.description %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
