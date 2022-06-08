@@ -10,7 +10,7 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.city = City.find(1)
+    @venue.city = City.find(:params[:city_id])
     @venue.save! ? redirect_to(venue_path(@venue)) : render(:new)
   end
 
