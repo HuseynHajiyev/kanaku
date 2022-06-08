@@ -8,6 +8,11 @@ export default class extends Controller {
   }
 
   displayToggle() {
+    if (this.gridButtonTarget.innerText == "Show map") {
+      this.gridButtonTarget.innerText = "Venues"
+    } else {
+      this.gridButtonTarget.innerText = "Show map"
+    }
     this.mapbTarget.classList.toggle("d-none")
   }
 }
