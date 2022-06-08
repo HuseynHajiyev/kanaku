@@ -5,6 +5,7 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @cities = City.all
   end
 
   def create
