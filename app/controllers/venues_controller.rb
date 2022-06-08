@@ -5,11 +5,13 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @cities = City.all
   end
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.save ? redirect_to(venue_path(@venue)) : render(:new)
+    @venue.city = City.find(:params[:city_id])
+    @venue.save! ? redirect_to(venue_path(@venue)) : render(:new)
   end
 
   def edit; end
@@ -30,6 +32,6 @@ class VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).permit(:address, :description, :name)
+    params.require(:venue).permit(:address, :description, :name, photos: [])
   end
 end

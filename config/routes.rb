@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get "/journeys/:id/preview", to: "journeys#preview"
-  # get "maps", to: "Maps#show"
-
+  
   devise_for :users
+  get "/journeys/:id/preview", to: "journeys#preview"
+  get '/profile', to: 'profiles#show'
   root to: 'pages#home'
-  resources :journeys, only: %i[edit update index]
-  resources :venues, only: %i[show new create edit update destroy]
-  resources :cities, only: %i[show]
-  # resources :users, only: %i[show edit update]
+  resources :journeys do
+    resources :journey_venues, only: %i[create]
+  end
+  resources :journey_venues, only: %i[create delete]
+  resources :venues
+  resources :cities, only: %i[index show new create]
 end
