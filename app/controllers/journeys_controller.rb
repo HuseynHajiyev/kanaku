@@ -11,7 +11,13 @@ class JourneysController < ApplicationController
 
   def edit; end
 
+
+  def preview
+    @journey = current_user.journeys.last
+  end
+
   def new; end
+
 
   def update
     @journey.update(journey_params)
