@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'file_validators'
 
+#Unsplash
+gem 'unsplash'
+
 # Geocoder
 gem "geocoder"
 

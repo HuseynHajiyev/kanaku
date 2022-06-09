@@ -38,8 +38,8 @@ City.all.each do |city|
     venue.name = Faker::Restaurant.name
     venue.description = Faker::Restaurant.description
     venue.rating = rand(0..5)
-    venue.latitude = city.latitude + (@minus_plus.sample * (rand(0..3603) / 10_000.0)).round(4)
-    venue.longitude = city.longitude + (@minus_plus.sample * (rand(0..3603) / 10_000.0)).round(4)
+    venue.latitude = city.latitude + (@minus_plus.sample * (rand(0..603) / 10_000.0)).round(4)
+    venue.longitude = city.longitude + (@minus_plus.sample * (rand(0..603) / 10_000.0)).round(4)
     venue.address = Faker::Address.street_address
     venue.city = city
     venue.save

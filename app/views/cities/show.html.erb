@@ -1,106 +1,47 @@
-<br>
+<% empty = true %>
+<% @venues.each do |venue| %>
+  <% if venue.photos.attached? %>
+  <%# <a href="<%= venue_path(venue) " class="fill"> %>
+    <% empty = false %>
+  <% end %>
+<% end %>
 <div class="container show-container">
-  <div class="venue-show-card">
-    <% if @city.photos.attached? %>
-      <div class="venue-image-container">
-        <% @city.photos.each do |photo| %>
-          <%# <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
-                                                        url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>
-          <%# </div> %>
-          <%= cl_image_tag photo.key, class: "venue-mini" %>
-
-        <% end %>
-      </div>
-    <% else %>
-      <div class="venue-image-container" style="<%=" background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
-                                  url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);"  %>">
-        <p class="city-show-card-city-name" id="city"><%= @city.name %>, <%= @city.name_country %></p>
-      </div>
-    <% end %>
-    <div class="venue-description-container">
-      <p><%= @city.description %></p>
-    </div>
-  </div>
-
-  <div class="category-cards-container">
-    <p>Category name</p>
+  <% unless empty %>
     <% @venues.each do |venue| %>
-      <%# <a href="<%= venue_path(venue) " class="fill"> %>
-      <% if venue.photos.attached? %>
-        <%= cl_image_tag venue.photos.first.key, class: "venue-mini" %>
-      <% else %>
-        <p>No photo attached.</p>
-      <% end %>
-      <%# </a> %>
+      <%= cl_image_tag venue.photos.first.key, class: "venue-mini" %>
     <% end %>
-  </div>
-
-  <div class="category-cards-container">
-    <p>Category name</p>
-    <div class="category-card">
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
+  <% else %>
+    <%# unsplash search result, first photo of city interpolated into the style %>
+    <% @photo_url = Unsplash::Photo.search(@city.name)[0][:urls].raw%>
+    <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+    <% @style = "background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                    url(#{@photo_url});" %>
+    <div class="city-card-image" style="<%= @style %>">
+      <p class="city-show-card-city-name" id="city"><%= @city.name %>, <%= @city.name_country %></p>
     </div>
-  </div>
-   <div class="category-cards-container">
-    <p>Category name</p>
-    <div class="category-card">
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-    </div>
-  </div>
-   <div class="category-cards-container">
-    <p>Category name</p>
-    <div class="category-card">
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-    </div>
-  </div>
-   <div class="category-cards-container">
-    <p>Category name</p>
-    <div class="category-card">
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
-      <a class="fill">
-        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
-      </a>
+    <%# </a> %>
+  <% end %>
+  <div class="venue-show-card">
+    <div class="category-cards-container">
+      <% categories = %w[sites restaurants bars parks] %>
+      <% 4.times do |i| %>
+        <p><strong><%= categories[i].capitalize %></strong></p>
+        <div class="category-card">
+          <%# unsplash search result, first photo of city interpolated into the style %>
+          <% @venues.first(4).each do |venue|%>
+            <%# <% @photo_url = Unsplash::Photo.random[:urls].small%>
+            <%# <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+            <% @photo_url = "https://source.unsplash.com/random" %>
+            <% @style = "background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                      url(#{@photo_url});" %>
+            <a class="fill" href="<%= venue_path(venue)%>">
+              <div class="city-card-image-small" style="<%= @style %>">
+                <p class="city-show-card-city-name-small"><%= venue.name %></p>
+              </div>
+            </a>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
