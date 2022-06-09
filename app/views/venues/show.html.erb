@@ -1,23 +1,25 @@
 <div class="container show-container">
   <div class="venue-show-card">
       <% if @venue.photos.attached? %>
-        <% @venue.photos.each do |photo| %>
-          <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
-                                                        url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>">
-            <%= @venue.name %>
-          </div>
-        <% end %>
+        <%# <% @venue.photos.each do |photo| %> %>
+          <%# <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)), %>
+                                                        <%# url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>"> %>
+            <%# <%= @venue.name %> %>
+          <%# </div> %>
+        <%# <% end %> %>
       <% else %>
-        <div class="venue-image-container" style="<%=" background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+        <div class="venue-image-container" style="<%=" background-image: linear-gradient(to top, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.1),rgba(82, 82, 82, 0.5)),
                                     url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);"  %>">
           <p class="venue-show-card-venue-name"><%= @venue.name %></p>
         </div>
       <% end %>
     <div class="venue-description-container">
-      <a class="mt-3 venue-show-card-city-name"><%= @venue.city.name %>, </a>
-      <a class="mt-3 venue-show-card-city-name" id="country">
-         <%= @venue.city.country_name %>
-      </a>
+      <div>
+        <a class="mt-3 venue-show-card-city-name" id="country">
+          <%= @venue.city.name%>,
+        </a>
+        <a class="mt-3 venue-show-card-city-name"><%= @venue.city.country_name %> </a>
+      </div>
       <p><%@venue.description%></p>
     </div>
   </div>
