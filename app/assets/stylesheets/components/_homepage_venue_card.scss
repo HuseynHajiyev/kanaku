@@ -3,7 +3,8 @@
   // grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .venue-photo {
@@ -23,7 +24,7 @@
 }
 
 .venue-photo img {
-  max-width: 100%;
+  max-width: 90%;
   border-radius: 16px;
 }
 

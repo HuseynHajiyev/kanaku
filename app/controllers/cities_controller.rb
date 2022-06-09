@@ -4,7 +4,9 @@ class CitiesController < ApplicationController
     @cities = City.all
   end
 
-  def show; end
+  def show
+    @venues = Venue.where(city_id: @city.id)
+  end
 
   def new
     @city = City.new
@@ -22,6 +24,6 @@ class CitiesController < ApplicationController
   end
 
   def city_params
-    params.require(:city).permit(:name, :latitude, :longitude, photos: [])
+    params.require(:city).permit(:name, :description, :latitude, :longitude, :name_country, photos: [])
   end
 end
