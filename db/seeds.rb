@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create!(email: 'test3@aol.com', password: '123456')
-city = City.create!({name: "london", descritpion: "effiel", latitude: 2, longtitude: 5})
+user = User.create!(email: 'test3@aol.com', password: '123456', first_name: "Will", last_name: "Valentine", user_name: "W")
+city = City.create!({ name: "london", description: "effiel", latitude: 2, longitude: 5 })
 
 3.times do |idx|
   journey = Journey.create!(user: user, description: "journey description #{idx}" )
