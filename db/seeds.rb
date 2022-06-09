@@ -38,5 +38,6 @@ City.all.each do |city|
     venue.longitude = city.longitude
     venue.address = Faker::Address.street_address
     venue.city = city
+    venue.save
   end
 end

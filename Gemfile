@@ -37,6 +37,9 @@ gem "geocoder"
 # image_processing
 gem 'image_processing', '~> 1.2'
 
+# faker
+gem 'faker'
+
 # cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
