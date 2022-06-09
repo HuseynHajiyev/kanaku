@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2022_06_08_200350) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "country"
     t.string "country_name"
-    t.string "country"
   end
 
   create_table "journey_venues", force: :cascade do |t|
