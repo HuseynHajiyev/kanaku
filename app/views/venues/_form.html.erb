@@ -1,4 +1,9 @@
 <%= simple_form_for @venue do |f| %>
+  <% unless @venue.persisted? %>
+    <% @venue.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  <% end %>
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.association :city%>
