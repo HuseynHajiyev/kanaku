@@ -1,6 +1,17 @@
-
+<div class="journey-overview-map">
+  <div data-controller="mapDisplay" class="py-16">
+    <div class="map-border" data-mapDisplay-target="mapb">
+      <div style="width: 100%; height: 45vh;" class="map"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container journeys-container p-0 m-0">
   <div class="journey-header">
+    <h2>Your Journey</h2>
   </div>
   <% @journey_venues.each do |venue| %>
     <div class="venue-journey-card">
@@ -16,5 +27,7 @@
       </div>
     </div>
   <% end %>
+  <div class="main-button">
+    <a href="#" class="btn" id="main-button">Confirm</a>
+  </div>
 </div>
-<a href="#" class="btn btn-success w-100 rounded" id="main-button">Confirm</a>

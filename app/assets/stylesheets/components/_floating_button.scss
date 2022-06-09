@@ -11,18 +11,17 @@
 // }
 
 #homepage-map-button {
-  background-color: bisque;
+  background-color: #445C3C;
   position: fixed;
   bottom: 24px;
   transition: 0.3s;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #6F594D;
   border-radius: 5px;
+  color: white;
+  font-weight: 900;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
 
-#homepage-map-button:hover {
-  background-color: beige;
-  transform: scaleX(1.15);
-  transform: scaleY(1.05);
-}
+// #homepage-map-button:hover {
+//   transform: scaleX(1.15);
+//   transform: scaleY(1.05);
+// }

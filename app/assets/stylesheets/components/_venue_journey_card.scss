@@ -3,6 +3,12 @@
   position: relative;
 }
 
+.journey-header {
+  text-align: center;
+  padding: 8px;
+  margin-top: 8px;
+}
+
 .venue-journey-card {
   display: flex;
   justify-content: space-between;
@@ -50,6 +56,19 @@
 }
 
 #main-button {
-  position: sticky;
-  bottom: 0;
+  position: fixed;
+  bottom: 24px;
+  background-color: #445C3C;
+  color: white;
+  font-weight: 900;
+  padding: 16px;
+  width: 75%;
+  border-radius: 5px;
+}
+
+.main-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
