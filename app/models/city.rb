@@ -4,7 +4,7 @@ class City < ApplicationRecord
   has_many_attached :photos
 
   validates :name, presence: true, uniqueness: true
-  validates :city_name, presence: true
+  validates :country_name, presence: true
   validates :description, presence: true
   validates :latitude, :longitude, presence: true
 end
