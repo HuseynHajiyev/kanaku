@@ -1,27 +1,25 @@
+<br>
 <div class="container show-container">
   <div class="venue-show-card">
-    <%# <% if @venue.photos.attached? %>
-      <%# @venue.photos.each do |photo| %>
-        <%# <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
-                                                      url(#{image_tag photo.key, height: 150, width: 150, crop: :fill});"  %>
-        <%# <%= @venue.name %>
-        <%# </div>
-      <% end %>
-    <%# <% end %>
-
-    <div class="venue-image">
-      <% @venue.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class: "venue-photo" %>
-      <% end %>
-      <%= @venue.name %>
+    <div class="container">
+      <div class="venue-image">
+        <% if @venue.photos.attached? %>
+          <% @venue.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: "w-90 h-75" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+        <% end %>
+      </div>
+      <br>
+      <h1 class="mt-3 venue-show-card-city-name", id="country"><%= @venue.name %></h1>
     </div>
     <div class="venue-description-container">
       <div>
-        <%= link_to @venue.city.name, city_path(@venue), class: "mt-3 venue-show-card-city-name", id: "country" %>
+        <%= link_to "Located in #{@venue.city.name}", city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" %>
       </div>
-      <p>
-        <%= @venue.description %>
-      </p>
+      <br>
+      <p><%= @venue.description %></p>
     </div>
   </div>
 </div>
