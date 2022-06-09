@@ -1,27 +1,88 @@
-<div class="city-container">
-  <div class="city-card">
-      <img class="picture-of-city" src="https://a.cdn-hotels.com/gdcs/production27/d274/43014cca-c88c-4061-ace8-58edc24531ee.jpg?impolicy=fcrop&w=800&h=533&q=medium" alt="London">
-      <h1><%= @city.name %></h1>
-  </div>
-    <div class="city-description">
-      <h2><%= @city.description %></h2>
-    </div>
-      <div class="city-sights">
-        <h3> Sights </h3>
-        <img class="picture-of-sights" src="https://image.cnbcfm.com/api/v1/image/105349189-1532444279996gettyimages-469465519.jpg?v=1532444893&w=1920&h=1080">
-        <h3> Bars </h3>
-        <img>
-        <h3> Rooftops </h3>
-        <img>
-        <h3> Tourist hotspots </h3>
-        <img>
+<div class="container show-container">
+  <div class="venue-show-card">
+    <% if @city.photos.attached? %>
+      <% @city.photos.each do |photo| %>
+        <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                                      url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>">
+          <%= @city.name %>, <%= @city.country_name %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="venue-image-container" style="<%=" background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                  url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);"  %>">
+        <p class="city-show-card-city-name" id="city"><%= @city.name %>, <%= @city.country_name %></p>
       </div>
+    <% end %>
+    <div class="venue-description-container">
+      <p><%= @city.description %></p>
+    </div>
+  </div>
+  <div class="category-cards-container">
+    <p>Category name</p>
+    <div class="category-card">
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+    </div>
+  </div>
+   <div class="category-cards-container">
+    <p>Category name</p>
+    <div class="category-card">
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+    </div>
+  </div>
+   <div class="category-cards-container">
+    <p>Category name</p>
+    <div class="category-card">
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+    </div>
+  </div>
+   <div class="category-cards-container">
+    <p>Category name</p>
+    <div class="category-card">
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+      <a class="fill">
+        <%= image_tag 'https://cdn.theculturetrip.com/wp-content/uploads/2020/01/pctp00014-oldestfoodbusinesses-newyork-usa-zahoran-03.jpg', class: "venue-mini" %>
+      </a>
+    </div>
+  </div>
 </div>
-
-<% if @city.photos.attached? %>
-  <% @city.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% else %>
-  <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
-<% end %>
