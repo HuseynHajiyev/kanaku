@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'file_validators'
 
+# Geocoder
+gem "geocoder"
+
 # image_processing
 gem 'image_processing', '~> 1.2'
 

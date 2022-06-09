@@ -1,0 +1,28 @@
+.floating-button {
+  text-align: center;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+// .floating-button p {
+//   font-size: 150%;
+// }
+
+#homepage-map-button {
+  background-color: bisque;
+  position: fixed;
+  bottom: 24px;
+  transition: 0.3s;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #6F594D;
+  border-radius: 5px;
+}
+
+#homepage-map-button:hover {
+  background-color: beige;
+  transform: scaleX(1.15);
+  transform: scaleY(1.05);
+}

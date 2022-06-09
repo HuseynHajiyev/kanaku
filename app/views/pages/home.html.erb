@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div data-controller="mapDisplay">
+  <%# <div class="container"> %>
+    <div class="map-border" data-mapDisplay-target="mapb">
+      <div style="width: 100%; height: 100vh;" class="map"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    <%# </div> %>
+  </div>
+  <div class="venues d-none" data-mapDisplay-target="venueList">
+    <% @venues.each do |venue| %>
+      <div class="homepage-venue-card">
+        <div class="venue-photo">
+          <% if venue.photos.attached? %>
+            <% venue.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, crop: :fill %>
+            <% end %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+          <% end %>
+        </div>
+        <div class="venue-name">
+          <%= venue.name %>
+        </div>
+        <div class="venue-address">
+          <%= venue.address %>
+        </div>
+        <div class="venue-description">
+          <%= venue.description %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="container">
+      <div class="floating-button">
+        <p class="btn" id="homepage-map-button" data-mapDisplay-target="gridButton" data-action="click->mapDisplay#displayToggle">Venues</p>
+      </div>
+  </div>
+</div>

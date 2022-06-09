@@ -1,0 +1,8 @@
+<ul>
+  <% @journey.venues.each do |venue| %>
+    <li><%= venue.name %></li>
+    <li><%= venue.city %></li>
+    <li><%= venue.address %></li>
+    <li><%= venue.description %></li>
+  <% end %>
+</ul>
