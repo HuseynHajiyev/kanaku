@@ -1,12 +1,12 @@
 <div class="container show-container">
   <div class="venue-show-card">
       <% if @venue.photos.attached? %>
-        <%# <% @venue.photos.each do |photo| %> %>
+        <%# <% @venue.photos.each do |photo| %>
           <%# <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)), %>
-                                                        <%# url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>"> %>
-            <%# <%= @venue.name %> %>
+                                                        <%# url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>
+            <%# <%= @venue.name %>
           <%# </div> %>
-        <%# <% end %> %>
+        <%# <% end %>
       <% else %>
         <div class="venue-image-container" style="<%=" background-image: linear-gradient(to top, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.1),rgba(82, 82, 82, 0.5)),
                                     url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);"  %>">
@@ -25,6 +25,6 @@
   </div>
 </div>
 <div class="d-flex justify-content-between" id="venue-button-container">
-    <a href="" class="btn btn-success" id="accept-venue">Add to previous Journey</a>
-    <a href="" class="btn btn-success" id="accept-venue">Add to your Journey</a>
+    <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
+    <a href="" class="btn btn-success" id="accept-venue">Add to Journey</a>
 </div>

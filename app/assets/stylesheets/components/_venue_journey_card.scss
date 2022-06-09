@@ -58,4 +58,17 @@
 #main-button {
   position: fixed;
   bottom: 24px;
+  background-color: #445C3C;
+  color: white;
+  font-weight: 900;
+  padding: 16px;
+  width: 75%;
+  border-radius: 5px;
+}
+
+.main-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
