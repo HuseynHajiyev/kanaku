@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
-  get "/journeys/:id/preview", to: "journeys#preview"
+  get "/journeys/:id/preview", to: "journeys#preview", as: :preview
   get '/profile', to: 'profiles#show'
   root to: 'pages#home'
   resources :journeys do

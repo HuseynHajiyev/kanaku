@@ -21,8 +21,8 @@
       <div class="venue-card-description">
         <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
         <p class="venue-card-description-body"><%= venue.description %></p>
-        <div class="d-flex justify-content-end">
-          <a href="#" class="btn btn-success">Remove</a>
+        <div class="d-flex">
+            <%= link_to "journey-preview", preview_path(@journey), class: "btn" %>
         </div>
       </div>
     </div>
