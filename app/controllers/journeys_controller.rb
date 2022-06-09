@@ -7,6 +7,14 @@ class JourneysController < ApplicationController
 
   def show
     @journey_venues = @journey.venues
+
+    @markers = @journey_venues.geocoded.map do |journey_venue|
+      {
+        lat: journey_venue.latitude,
+        lng: journey_venue.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { journey_venue: journey_venue })
+      }
+    end
   end
 
   def edit; end

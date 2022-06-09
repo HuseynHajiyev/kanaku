@@ -3,6 +3,12 @@
   position: relative;
 }
 
+.journey-header {
+  text-align: center;
+  padding: 8px;
+  margin-top: 8px;
+}
+
 .venue-journey-card {
   display: flex;
   justify-content: space-between;
@@ -50,6 +56,6 @@
 }
 
 #main-button {
-  position: sticky;
-  bottom: 0;
+  position: fixed;
+  bottom: 24px;
 }
