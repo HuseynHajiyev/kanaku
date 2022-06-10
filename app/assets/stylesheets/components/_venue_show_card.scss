@@ -36,6 +36,9 @@
   border-radius: 5px;
   background-color: #445C3C;
   border-color: #62978E;
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
 }
 
 #reject-venue {
@@ -100,11 +103,15 @@
 }
 
 .venue-card-image {
-  width: 100%;
+    width: 100%;
     height: 50vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
     padding: 8px;
+}
+
+.placeholder-img {
+  width: 100%;
 }
