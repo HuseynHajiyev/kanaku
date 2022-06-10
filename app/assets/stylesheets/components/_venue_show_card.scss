@@ -36,6 +36,8 @@
   border-radius: 5px;
   background-color: #445C3C;
   border-color: #62978E;
+  position: fixed;
+  bottom: 24px;
 }
 
 #accept-venue:active {
@@ -82,4 +84,8 @@
 
 .venue-photo {
   width: 100vw;
+}
+
+.placeholder-img {
+  width: 100%;
 }
