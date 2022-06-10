@@ -8,7 +8,7 @@
             <%= cl_image_tag photo.key, class: "w-90 h-75" %>
           <% end %>
         <% else %>
-          <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+          <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg", class: "placeholder-img", crop: :contain %>
         <% end %>
       </div>
       <br>
