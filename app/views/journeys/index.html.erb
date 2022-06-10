@@ -9,9 +9,9 @@
           </div>
           <div class="journey-card-description">
             <p class="journey-card-description-header"><%= venue.name.capitalize %></p>
-            <p class="journey-card-description-body"><%= venue.description %></p>
+            <%# <p class="journey-card-description-body"><%= venue.description </p> %>
             <div class="d-flex">
-              <%= link_to "view-journey", journey_path(journey), class: "btn" %>
+              <%= link_to "View", journey_path(journey), class: "btn journey-button" %>
             </div>
           </div>
         </div>
