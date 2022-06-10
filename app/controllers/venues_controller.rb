@@ -2,10 +2,7 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: %i[edit show update destroy]
 
   def show
-    @included = false
-    return if current_user.journeys.nil?
-
-    @included = !JourneyVenue.find_by(journey: current_user.journeys.last, venue: @venue).nil?
+    @journey_venue = JourneyVenue.find_by(journey: current_user.journeys.last, venue: @venue)
   end
 
   def new

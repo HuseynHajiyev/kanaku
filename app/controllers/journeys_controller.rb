@@ -33,30 +33,6 @@ class JourneysController < ApplicationController
     redirect_to journey_path(@journey)
   end
 
-  def add_venue
-    # if session[:journey].nil?
-    #   session[:jouney] = Journey.new
-    #   session[:journey].user = current_user
-    #   session[:journey].save!
-    # end
-
-    @journey = Journey.last.nil? ? Journey.create!(user: current_user) : Journey.last
-    @journey_venue = JourneyVenue.new
-    # @journey_venue.journey = session[:journey]
-    @journey_venue.venue = @venue
-    @journey_venue.journey = @journey
-    @journey_venue.save!
-    render :show
-  end
-
-  def remove_venue
-    @journey = Journey.last
-    @venue = @journey.venues.find(@venue.id)
-    @venue.destroy
-    riase
-    render :show
-  end
-
   private
 
   def find_journey
