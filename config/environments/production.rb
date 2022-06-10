@@ -118,4 +118,15 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # Unsplash
+  Unsplash.configure do |config|
+    config.application_access_key = "mixmTiNGs4Yqe5-BDxZalXgfL2p8y9fkJVMcHh7_B4M"
+    config.application_secret = "RJDeaEpHw3ZpT_6PtAwSkJX2lKfq4z5AFbSun1UNySE"
+    config.application_redirect_uri = "https://kanaku.me"
+    config.utm_source = "alices_terrific_client_app"
+
+    # optional:
+    # config.logger = MyCustomLogger.new
+  end
 end
