@@ -1,5 +1,5 @@
 class VenueCategory < ApplicationRecord
-  belongs_to :categories
-  belongs_to :venues
+  belongs_to :category
+  belongs_to :venue
   validates :venue, uniqueness: { scope: :category }
 end
