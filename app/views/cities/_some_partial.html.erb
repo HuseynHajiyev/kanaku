@@ -1,0 +1,23 @@
+<%# style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                  url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);"
+
+<% if @city.photos.attached? %>
+      <%# <div class="venue-image-container">
+        <% @city.photos.each do |photo| %> %>
+          <%# <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                                        url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>
+          <%# </div> %>
+          <%# <%= cl_image_tag photo.key, class: "venue-mini" %> %>
+
+        <%# <% end %> %>
+      <%# </div> %>
+    <%# <% else %> %>
+    /
+
+    <%# <% end %> %>
+    <%# <div class="venue-description-container"> %>
+      <%# <p> %>
+        <%# <%= @city.description %> %>
+      <%# </p> %>
+    <%# </div> %>
+  <%# </div> %> %>

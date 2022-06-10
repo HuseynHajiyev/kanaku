@@ -1,9 +1,13 @@
 <h2><%= venue.name %></h2>
 <% if venue.photos.attached? %>
   <% venue.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, crop: :fill %>
+    <%= link_to venue_path(venue) do %>
+      <%= cl_image_tag photo.key, crop: :fill %>
+    <% end %>
   <% end %>
 <% else %>
-  <%= cl_image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+  <%= link_to venue_path(venue) do %>
+    <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+  <% end %>
 <% end %>
 <p>Location: <%= venue.address %></p>

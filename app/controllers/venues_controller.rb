@@ -1,7 +1,12 @@
 class VenuesController < ApplicationController
   before_action :find_venue, only: %i[edit show update destroy]
 
-  def show; end
+  def show
+    @included = false
+    return if current_user.journeys.nil?
+
+    @included = !JourneyVenue.find_by(journey: current_user.journeys.last, venue: @venue).nil?
+  end
 
   def new
     @venue = Venue.new
@@ -10,8 +15,9 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.city = City.find(:params[:city_id])
-    @venue.save! ? redirect_to(venue_path(@venue)) : render(:new)
+    @venue.city = City.find(params[:venue][:city_id])
+
+    @venue.save ? redirect_to(venue_path(@venue)) : render(:new)
   end
 
   def edit; end

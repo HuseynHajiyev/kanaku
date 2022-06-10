@@ -74,4 +74,15 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Unsplash
+  Unsplash.configure do |config|
+    config.application_access_key = "mixmTiNGs4Yqe5-BDxZalXgfL2p8y9fkJVMcHh7_B4M"
+    config.application_secret = "RJDeaEpHw3ZpT_6PtAwSkJX2lKfq4z5AFbSun1UNySE"
+    config.application_redirect_uri = "https://kanaku.me"
+    config.utm_source = "alices_terrific_client_app"
+
+    # optional:
+    # config.logger = MyCustomLogger.new
+  end
 end

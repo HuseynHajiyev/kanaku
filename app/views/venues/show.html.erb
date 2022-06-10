@@ -1,30 +1,35 @@
+<br>
 <div class="container show-container">
   <div class="venue-show-card">
-      <% if @venue.photos.attached? %>
-        <%# <% @venue.photos.each do |photo| %>
-          <%# <div class="venue-image-container" style="<%="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)), %>
-                                                        <%# url(#{cl_image_path photo.key, height: 150, width: 150, crop: :fill});"  %>
-            <%# <%= @venue.name %>
-          <%# </div> %>
-        <%# <% end %>
-      <% else %>
-        <div class="venue-image-container" style="<%=" background-image: linear-gradient(to top, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.1),rgba(82, 82, 82, 0.5)),
-                                    url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);"  %>">
-          <p class="venue-show-card-venue-name"><%= @venue.name %></p>
-        </div>
-      <% end %>
+    <div class="container">
+      <div class="venue-image">
+        <% if @venue.photos.attached? %>
+          <% @venue.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: "w-90 h-75" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+        <% end %>
+      </div>
+      <br>
+      <h1 class="mt-3 venue-show-card-city-name", id="country"><%= @venue.name %></h1>
+    </div>
     <div class="venue-description-container">
       <div>
-        <a class="mt-3 venue-show-card-city-name" id="country">
-          <%= @venue.city.name%>,
-        </a>
-        <a class="mt-3 venue-show-card-city-name"><%= @venue.city.country_name %> </a>
+        <%= link_to "Located in #{@venue.city.name}", city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" %>
       </div>
-      <p><%@venue.description%></p>
+      <br>
+      <p><%= @venue.description %></p>
     </div>
   </div>
 </div>
 <div class="d-flex justify-content-between" id="venue-button-container">
-    <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
-    <a href="" class="btn btn-success" id="accept-venue">Add to Journey</a>
+    <%# <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
+    <a href="" class="btn btn-success" id="accept-venue"></a> %>
+    <%  %>
+    <% if @included %>
+      <%= link_to 'Remove from Journey', remove_venue_path(@venue), method: :destroy, class: "btn btn-success", id: "accept-venue" %>
+    <% else %>
+      <%= link_to 'Add to Journey', add_venue_path(@venue), method: :add_venue, class: "btn btn-success", id: "accept-venue"  %>
+    <% end %>
 </div>

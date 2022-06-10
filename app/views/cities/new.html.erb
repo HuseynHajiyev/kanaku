@@ -1,8 +1,11 @@
-<%= simple_form_for @city do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :latitude %>
-  <%= f.input :longitude %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Create city" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @city do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :name_country, as: :string %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Create city" %>
+  <% end %>
+</div>

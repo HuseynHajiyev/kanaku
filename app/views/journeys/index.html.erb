@@ -11,7 +11,7 @@
             <p class="journey-card-description-header"><%= venue.name.capitalize %></p>
             <p class="journey-card-description-body"><%= venue.description %></p>
             <div class="d-flex">
-              <a href="#" class="btn btn-success">View Journey</a>
+              <%= link_to "view-journey", journey_path(journey), class: "btn" %>
             </div>
           </div>
         </div>
