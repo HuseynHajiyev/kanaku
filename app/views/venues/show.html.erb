@@ -1,4 +1,19 @@
 <div class="container show-container">
+  <% if @venue.photos.attached? %>
+    <% @venue.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class: "venue-mini" %>
+    <% end %>
+  <% else %>
+    <%# unsplash search result, first photo of city interpolated into the style %>
+    <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
+    <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+    <% @style = "background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                                    url(#{@photo_url});" %>
+    <div class="venue-card-image" style="<%= @style %>">
+      <p class="city-show-card-city-name" id="city"><%= @venue.name %></p>
+    </div>
+    <%# </a> %>
+<% end %>
   <div class="venue-show-card">
     <%# <% if @venue.photos.attached? %>
       <%# @venue.photos.each do |photo| %>
@@ -8,11 +23,10 @@
         <%# </div>
       <% end %>
     <%# <% end %>
-
+      <%# <% @venue.photos.each do |photo| %>
+        <%# <%= cl_image_tag photo.key, class: "venue-photo" %>
+      <%# <% end %>
     <div class="venue-image">
-      <% @venue.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class: "venue-photo" %>
-      <% end %>
       <%= @venue.name %>
     </div>
     <div class="venue-description-container">
@@ -28,10 +42,10 @@
 <div class="d-flex justify-content-between" id="venue-button-container">
     <%# <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
     <a href="" class="btn btn-success" id="accept-venue"></a> %>
-    <%  %>
-    <% if @included %>
-      <%= link_to 'Remove from Journey', remove_venue_path(@venue), method: :destroy, class: "btn btn-success", id: "accept-venue" %>
+    <%= link_to 'Browse Venues', city_path(@venue.city), class: "btn btn-success", id: "accept-venue"  %>
+    <% if @journey_venue %>
+      <%= link_to 'Remove Location', journey_venue_path(@journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue" %>
     <% else %>
-      <%= link_to 'Add to Journey', add_venue_path(@venue), method: :add_venue, class: "btn btn-success", id: "accept-venue"  %>
+      <%= link_to 'Add to Journey', venue_journey_venues_path(@venue), method: :post, class: "btn btn-success", id: "accept-venue"  %>
     <% end %>
 </div>
