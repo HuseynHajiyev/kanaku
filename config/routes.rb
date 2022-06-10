@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :journey_venues, only: %i[create delete]
   resources :venues
   resources :cities, only: %i[index show new create]
+
+  post "/cities/:id", to: "journeys#add_venue", as: :add_venue
+  delete "/cities/:id", to: "journeys#remove_venue", as: :remove_venue
 end
