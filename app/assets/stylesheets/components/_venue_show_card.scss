@@ -38,6 +38,7 @@
   border-color: #62978E;
   position: fixed;
   bottom: 24px;
+  left: 24px;
 }
 
 #accept-venue:active {
@@ -88,4 +89,9 @@
 
 .placeholder-img {
   width: 100%;
+}
+
+.venue-card-image {
+  width: 100%;
+  height: 50vh;
 }
