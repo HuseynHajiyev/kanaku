@@ -59,7 +59,7 @@
 }
 
 #venue-button-container {
-  max-width: 94vw;
+  max-width: 100vw;
   padding: 24px 8px;
   position: sticky;
   bottom: 12px;
@@ -107,6 +107,8 @@
     background-position: center;
     position: relative;
     padding: 8px;
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1),rgba(245, 246, 252, 0.3),rgba(82, 82, 82, 0.7)),
+                      url(https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg);
 }
 
 .placeholder-img {
