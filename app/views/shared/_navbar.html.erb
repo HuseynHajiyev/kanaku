@@ -15,6 +15,7 @@
             <%= link_to "All Journeys", journeys_path, class: "nav-link" %>
           </li>
            <li class="nav-item active">
+            <% @journey = Journey.last.nil? ? Journey.new(user: current_user) : Journey.last%>
             <%= link_to "My Journey", journey_path(Journey.last), class: "nav-link" %>
           </li>
           <li class="nav-item">
