@@ -9,30 +9,29 @@
     <%# </div> %>
   </div>
   <div class="venues d-none" data-mapDisplay-target="venueList">
-    <% @venues.each do |venue| %>
+    <% @cities.each do |city| %>
       <div class="homepage-venue-card">
         <div class="venue-photo">
-          <% if venue.photos.attached? %>
-            <% venue.photos.each do |photo| %>
-              <%= link_to venue_path(venue) do %>
+          <% if city.photos.attached? %>
+            <% city.photos.each do |photo| %>
+              <%= link_to city_path(city) do %>
                 <%= cl_image_tag photo.key, crop: :fill %>
               <% end %>
             <% end %>
           <% else %>
-            <%= link_to venue_path(venue) do %>
-              <%= image_tag "https://res.cloudinary.com/wvala/image/upload/v1653657110/nxr4ymq5mgmmfmwflkqv.jpg" %>
+            <%= link_to city_path(city) do %>
+              <% @photo_url = Unsplash::Photo.search(city.name)[1][:urls].raw%>
+              <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+              <%= image_tag @photo_url %>
             <% end %>
           <% end %>
         </div>
         <div class="container">
           <div class="venue-name">
-            <%= venue.name %>
-          </div>
-          <div class="venue-address">
-            <%= venue.address %>
+            <%= city.name %>
           </div>
           <div class="venue-description">
-            <%= venue.description %>
+            <%= city.description %>
           </div>
         </div>
       </div>
@@ -40,7 +39,7 @@
   </div>
   <div class="container">
       <div class="floating-button">
-        <p class="btn" id="homepage-map-button" data-mapDisplay-target="gridButton" data-action="click->mapDisplay#displayToggle">Venues</p>
+        <p class="btn" id="homepage-map-button" data-mapDisplay-target="gridButton" data-action="click->mapDisplay#displayToggle">Cities</p>
       </div>
   </div>
 </div>
