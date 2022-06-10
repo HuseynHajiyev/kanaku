@@ -15,14 +15,14 @@
   </div>
   <% @journey_venues.each do |venue| %>
     <div class="venue-journey-card">
-      <div class="venue-card-image" style="">
+      <div class="venue-card-image" style="h-50 w-45">
         <p class="venue-card-image-header"><%= "#{venue.name.capitalize}'s view from front" %></p>
       </div>
       <div class="venue-card-description">
         <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
-        <p class="venue-card-description-body"><%= venue.description %></p>
+        <%# <p class="venue-card-description-body"><%= venue.description %></p>
         <div class="d-flex">
-            <%= link_to "journey-preview", preview_path(@journey), class: "btn" %>
+            <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
         </div>
       </div>
     </div>
