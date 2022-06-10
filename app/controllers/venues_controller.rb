@@ -2,7 +2,12 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: %i[edit show update destroy]
 
   def show
+    if current_user.journeys.last.nil?
+      @journey = Journey.create!(user: current_user)
+      @journey.save
+    end
     @journey_venue = JourneyVenue.find_by(journey: current_user.journeys.last, venue: @venue)
+    # raise
   end
 
   def new

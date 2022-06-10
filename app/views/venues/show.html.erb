@@ -27,9 +27,6 @@
       <%# <% @venue.photos.each do |photo| %>
         <%# <%= cl_image_tag photo.key, class: "venue-photo" %>
       <%# <% end %>
-    <div class="venue-image">
-      <%= @venue.name %>
-    </div>
     <div class="venue-description-container">
       <div>
         <%= link_to "Located in #{@venue.city.name}", city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" %>
