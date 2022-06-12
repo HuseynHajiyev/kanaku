@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @venues = Venue.where(city_id: @city.id)
+    @venues = Venue.where(city: @city)
   end
 
   def new
