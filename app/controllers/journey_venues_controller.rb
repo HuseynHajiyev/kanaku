@@ -8,7 +8,7 @@ class JourneyVenuesController < ApplicationController
     #   session[:journey].save!
     # end
     @venue = Venue.find(params[:venue_id])
-    @journey = Journey.last.nil? ? Journey.create!(user: current_user) : Journey.last
+    @journey = current_user.journeys.nil? ? Journey.create!(user: current_user) : current_user.journeys.last
     @journey_venue = JourneyVenue.new
     # @journey_venue.journey = session[:journey]
     @journey_venue.venue = @venue
