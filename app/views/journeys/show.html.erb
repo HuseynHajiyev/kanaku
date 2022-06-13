@@ -3,6 +3,7 @@
     <div class="map-border" data-mapDisplay-target="mapb">
       <div style="width: 100%; height: 45vh;" class="map"
         data-controller="mapbox"
+        data-mapbox-journey-show-value="show"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
