@@ -28,7 +28,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  padding-left: 24px;
+  padding-left: 8px;
 }
 
 main {
@@ -239,4 +239,10 @@ img {
   text-transform: uppercase;
   transition: color .1s;
   color: black;
+}
+
+
+.logo {
+  height: 90%;
+  width: 150px;
 }

@@ -1,7 +1,12 @@
 <%# <div class="page"> %>
-  <header tabindex="0" style="z-index: 1;"><%= link_to root_path, class: "navbar-brand" do %>
-                                             <h2>Kanaku</h2>
+  <%# <header tabindex="0" style="z-index: 1;"><%= link_to root_path, class: "navbar-brand" do %>
+                                             <%# <h2>Kanaku</h2> %>
+                                          <%# <% end%>
+
+  <header tabindex="0" style="z-index: 1;"><%= link_to root_path do %>
+                                             <%= cl_image_tag("https://res.cloudinary.com/wvala/image/upload/v1655130229/Kanaku_lwce8r.jpg", crop: :fit, class: "logo") %>
                                            <% end %></header>
+
   <div id="nav-container">
     <div class="bg"></div>
     <div class="button" style="z-index: 1;" tabindex="0">
