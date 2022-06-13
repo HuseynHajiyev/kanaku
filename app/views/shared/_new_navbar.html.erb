@@ -1,0 +1,39 @@
+<%# <div class="page"> %>
+  <header tabindex="0" style="z-index: 1;"><%= link_to root_path, class: "navbar-brand" do %>
+                                             <h2>Kanaku</h2>
+                                           <% end %></header>
+  <div id="nav-container">
+    <div class="bg"></div>
+    <div class="button" style="z-index: 1;" tabindex="0">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div id="nav-content" tabindex="0">
+      <ul>
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "All Journeys", journeys_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <% @journey = current_user.journeys.nil? ? Journey.create(user: current_user) : current_user.journeys.last%>
+            <%= link_to "My Journey", journey_path(@journey), class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Add Venue", new_venue_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "My Profile", profile_path, class: "nav-link" %>
+          </li>
+          </li class="nav-item active">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link", id: "logout-btn" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<%# </div> %>
