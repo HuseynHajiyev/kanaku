@@ -1,11 +1,17 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: #445C3C;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .navbar-lewagon h2 {
   color: white;
   font-weight: 900;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,6 +22,9 @@
   width: 40px;
 }
 
+#logo {
+  width: 30px;
+}
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {

@@ -22,7 +22,7 @@
         <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
         <%# <p class="venue-card-description-body"><%= venue.description %></p>
         <div class="d-flex">
-            <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
+            <%= link_to "Preview", venue_path(venue), class: "btn journey-button" %>
         </div>
       </div>
     </div>

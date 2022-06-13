@@ -20,7 +20,7 @@ City.destroy_all
                     "St. Petersburg is a gem of world culture and Russia's most European city.",
                     "In Europe, I always have fun bike riding in Amsterdam."]
 @city_latitude = [51.5072, 40.7128, 48.8566, 41.0082, 52.5200, 59.9311, 52.3676]
-@city_longitude = [0.1276, 74.0060, 2.3522, 28.9784, 13.4050, 30.3609, 4.9041]
+@city_longitude = [0.1276, -74.0060, 2.3522, 28.9784, 13.4050, 30.3609, 4.9041]
 
 @city_names.each_with_index do |city, index|
   @city = City.new(name: city)
