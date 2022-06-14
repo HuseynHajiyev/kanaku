@@ -14,6 +14,28 @@
   background-color: #445C3C;
   position: fixed;
   bottom: 24px;
+  transition: 0.2s;
+  border-radius: 5px;
+  color: white;
+  font-weight: 900;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.homepage-map-raised {
+  bottom: 675px !important;
+}
+
+// #homepage-map-button:hover {
+//   transform: scaleX(1.15);
+//   transform: scaleY(1.05);
+// }
+
+#preview-map-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #445C3C;
   transition: 0.3s;
   border-radius: 5px;
   color: white;
@@ -21,7 +43,12 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
 
-// #homepage-map-button:hover {
-//   transform: scaleX(1.15);
-//   transform: scaleY(1.05);
-// }
+.instructions-holder {
+  bottom: 0%;
+  height: fit-content;
+}
+
+.internal-container {
+  position: relative;
+  background: transparent;
+}
