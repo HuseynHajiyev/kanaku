@@ -9,7 +9,7 @@ export default class extends Controller {
 
   displayToggle() {
     if (this.gridButtonTarget.innerText == "Show map") {
-      this.gridButtonTarget.innerText = "Venues"
+      this.gridButtonTarget.innerText = "Cities"
     } else {
       this.gridButtonTarget.innerText = "Show map"
     }

@@ -29,7 +29,7 @@
             <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
             <%= link_to journey_venue_path(JourneyVenue.find_by(journey: @journey, venue: venue)), method: :delete do %>
             <i class="fa fa-trash"></i>
-            <% end%>
+            <% end %>
         </div>
       </div>
     </div>
