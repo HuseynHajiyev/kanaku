@@ -25,7 +25,7 @@
       </div>
       <div class="venue-card-description">
         <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
-        <div class="d-flex align-items-end h-100" style="padding-bottom: 39px;">
+        <div class="d-flex align-items-end">
             <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
             <%= link_to journey_venue_path(JourneyVenue.find_by(journey: @journey, venue: venue)), method: :delete do %>
             <i class="fa fa-trash"></i>
