@@ -10,7 +10,7 @@ class PagesController < ApplicationController
         lat: venue.latitude,
         lng: venue.longitude,
         info_window: render_to_string(partial: "info_window", locals: { venue: venue }),
-        image_url: helpers.asset_url("marker.svg")
+        image_url: helpers.asset_url("marker-stroked.svg")
       }
     end
   end
