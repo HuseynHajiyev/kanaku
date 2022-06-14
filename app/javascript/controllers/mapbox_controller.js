@@ -13,7 +13,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/wvala/cl45l3pzm009z14pltndjqdot"
+      style: "mapbox://styles/wvala/cl4dx8g7d001p14p2qmgdzcbq"
     })
     if (this.map) {
       this.#addMarkersToMap();
@@ -30,7 +30,14 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
-      new mapboxgl.Marker()
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "40px"
+      customMarker.style.height = "40px"
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
@@ -56,7 +63,7 @@ export default class extends Controller {
     const query = await fetch(
       `https://api.mapbox.com/directions/v5/mapbox/walking/${addresses}?steps=true&geometries=geojson&access_token=pk.eyJ1Ijoid3ZhbGEiLCJhIjoiY2wzNGV0MDZrMDNxNDNqcDVydW8wcGd6MyJ9.5z3qs54hdI3hGslqjk1wNw`,
       { method: 'GET' }
-    );
+      );
 
     const json = await query.json();
     const data = json.routes[0];
@@ -65,84 +72,56 @@ export default class extends Controller {
       type: 'Feature',
       properties: {},
       geometry: {
-      type: 'LineString',
-      coordinates: route
+        type: 'LineString',
+        coordinates: route
       }
     };
-    console.log(geojson)
+
     this.map.addLayer({
       id: 'route',
       type: 'line',
       source: {
-          type: 'geojson',
-          data: geojson
+        type: 'geojson',
+        data: geojson
       },
       layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
+        'line-join': 'round',
+        'line-cap': 'round'
       },
       paint: {
-          'line-color': '#3887be',
-          'line-width': 5,
-          'line-opacity': 0.75
+        'line-color': '#7c8d77',
+        'line-width': 5,
+        'line-opacity': 0.75
       }
     });
-  }
 
-//   #addLayer() {
-//     console.log(this.#getRoute())
-//     this.map.addLayer({
-//       id: 'route',
-//       type: 'line',
-//       source: {
-//           type: 'geojson',
-//           data: this.#getRoute()
-//       }
-//       // layout: {
-//       //     'line-join': 'round',
-//       //     'line-cap': 'round'
-//       // },
-//       // paint: {
-//       //     'line-color': '#3887be',
-//       //     'line-width': 5,
-//       //     'line-opacity': 0.75
-//       // }
-//     });
-//   }
+    const instructions = document.getElementById('instructions');
+    const steps = data.legs[0].steps;
+
+    let tripInstructions = '';
+    for (const step of steps) {
+      tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+    }
+    instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+      data.duration / 60
+    )} min 🚶‍♂️ </strong></p><ol>${tripInstructions}</ol>`;
+
+
+  }
 }
 
-// controller, mapbox controller, view
 
+// GEOCODING
+// map.addControl(
+//   new mapboxgl.GeolocateControl({
+//   positionOptions: {
+//   enableHighAccuracy: true
+//   },
+//   // When active the map will receive updates to the device's location as it changes.
+//   trackUserLocation: true,
+//   // Draw an arrow next to the location dot to indicate which direction the device is heading.
+//   showUserHeading: true
+//   })
+//   );
 
-// 1. receive the markers
-// @markers = current_user.journeys.last.venues
-// what function are we performing on these?
-
-// 2. place them on a map
-// new page controller for the journey preview - do markers logic there?
-// will i also need a new mapbox controller?
-
-// 3. insert the values of the journey venues into the Mapbox navigation API with a fetch
-// const vnues = [];
-// journey_venues.forEach((journey_venue) => {
-//   vnues.push(`${journey_venue.latitude},${journey_venue.longitude}`)
-// })
-
-
-// example url: `https://api.mapbox.com/directions/v5/mapbox/walking/${vnues.join(";")}?steps=true&geometries=geojson&access_token=${MAPBOX_API_KEY}`
-
-// 4. display the navigation object on the map, with (optional) instructions
-// ???
-
-
-// INSTRUCTIONS:
-// let tripInstructions = '';
-// for (const step of steps) {
-//   tripInstructions += `<li>${step.maneuver.instruction}</li>`;
-//   }
-//   instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
-//   data.duration / 60
-//   )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
-//   }
-
-// 5. option for driving route as well - just weighted differently
+// Option for driving route as well - just weighted differently???
