@@ -1,5 +1,5 @@
 class JourneysController < ApplicationController
-  before_action :find_journey, only: %i[edit update show]
+  before_action :find_journey, only: %i[edit update show preview]
   before_action :find_venue, only: %i[add_venue remove_venue]
 
   def index
@@ -15,7 +15,8 @@ class JourneysController < ApplicationController
       {
         lat: venue.latitude,
         lng: venue.longitude,
-        info_window: render_to_string(partial: "pages/info_window", locals: {venue: venue })
+        info_window: render_to_string(partial: "pages/info_window", locals: {venue: venue }),
+        image_url: helpers.asset_url("marker.svg")
       }
     end
   end
@@ -23,7 +24,15 @@ class JourneysController < ApplicationController
   def edit; end
 
   def preview
-    @journey = current_user.journeys.last
+    @journey_venues = @journey.venues
+    @markers = @journey_venues.geocoded.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        info_window: render_to_string(partial: "pages/info_window", locals: {venue: venue }),
+        image_url: helpers.asset_url("marker.svg")
+      }
+    end
   end
 
   def new; end

@@ -3,6 +3,7 @@
     <div class="map-border" data-mapDisplay-target="mapb">
       <div style="width: 100%; height: 45vh;" class="map"
         data-controller="mapbox"
+        data-mapbox-journey-show-value="show"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
@@ -14,20 +15,26 @@
     <h2>Your Journey</h2>
   </div>
   <% @journey_venues.each do |venue| %>
+     <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
+    <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+    <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                                           url(#{@photo_url});" %>
     <div class="venue-journey-card">
-      <div class="venue-card-image" style="h-50 w-45">
-        <p class="venue-card-image-header"><%= "#{venue.name.capitalize}'s view from front" %></p>
+      <div class="venue-card-image"  style="<%= @style %>">
+        <p class="venue-card-image-header"><%= "#{venue.name}'s view from front" %></p>
       </div>
       <div class="venue-card-description">
-        <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
-        <%# <p class="venue-card-description-body"><%= venue.description %></p>
-        <div class="d-flex">
-            <%= link_to "Preview", venue_path(venue), class: "btn journey-button" %>
+        <p class="venue-card-description-header"><%= venue.name %></p>
+        <div class="d-flex align-items-end">
+            <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
+            <%= link_to journey_venue_path(JourneyVenue.find_by(journey: @journey, venue: venue)), method: :delete do %>
+            <i class="fa fa-trash"></i>
+            <% end %>
         </div>
       </div>
     </div>
   <% end %>
   <div class="main-button">
-    <a href="#" class="btn" id="main-button">Confirm</a>
+    <%= link_to "Directions", preview_path(@journey), class: "btn", id: "main-button" %>
   </div>
 </div>

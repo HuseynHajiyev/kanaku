@@ -24,10 +24,7 @@
       <% 4.times do |i| %>
         <h2 class="flex-center py-3"><strong><%= categories[i].capitalize %></strong></h2>
         <div class="category-card">
-          <%# unsplash search result, first photo of city interpolated into the style %>
           <% @venues.first(2).each do |venue|%>
-            <%# <% @photo_url = Unsplash::Photo.random[:urls].small%>
-            <%# <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
             <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
             <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
             <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),

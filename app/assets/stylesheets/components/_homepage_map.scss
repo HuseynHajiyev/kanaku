@@ -35,3 +35,13 @@
 body {
   background-color: #FAF9F6;
 }
+
+#instructions {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+  background-color: #FAF9F6;
+  overflow-y: scroll;
+  height: 40%;
+}
