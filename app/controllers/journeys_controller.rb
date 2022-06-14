@@ -16,7 +16,7 @@ class JourneysController < ApplicationController
         lat: venue.latitude,
         lng: venue.longitude,
         info_window: render_to_string(partial: "pages/info_window", locals: {venue: venue }),
-        image_url: helpers.asset_url("marker.svg")
+        image_url: helpers.asset_url("marker-stroked.svg")
       }
     end
   end
@@ -30,7 +30,7 @@ class JourneysController < ApplicationController
         lat: venue.latitude,
         lng: venue.longitude,
         info_window: render_to_string(partial: "pages/info_window", locals: {venue: venue }),
-        image_url: helpers.asset_url("marker.svg")
+        image_url: helpers.asset_url("marker-stroked.svg")
       }
     end
   end

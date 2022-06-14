@@ -27,7 +27,9 @@
       <%# <% end %>
     <div class="venue-description-container">
       <div>
-        <%= link_to "Located in #{@venue.city.name}", city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" %>
+        <h6><%= link_to "Located in #{@venue.city.name}", city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" %></h6>
+        <br>
+        <h6>Address: <%= @venue.address %></h6>
       </div>
       <br>
       <p><%= @venue.description %></p>
