@@ -21,10 +21,10 @@
                                            url(#{@photo_url});" %>
     <div class="venue-journey-card">
       <div class="venue-card-image"  style="<%= @style %>">
-        <p class="venue-card-image-header"><%= "#{venue.name.capitalize}'s view from front" %></p>
+        <p class="venue-card-image-header"><%= "#{venue.name}'s view from front" %></p>
       </div>
       <div class="venue-card-description">
-        <p class="venue-card-description-header"><%= venue.name.capitalize %></p>
+        <p class="venue-card-description-header"><%= venue.name %></p>
         <div class="d-flex align-items-end">
             <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
             <%= link_to journey_venue_path(JourneyVenue.find_by(journey: @journey, venue: venue)), method: :delete do %>
