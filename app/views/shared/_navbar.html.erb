@@ -40,31 +40,32 @@
 <%#_____________________________________________SEARCH BAR____________________________________________________________%>
 
 <div class="search-box-container" data-controller="searchBar">
-  <div class="search-box" data-searchBar-target="box">
+  <div class="search-box" data-searchBar-target="box" data-action="touchstart->searchBar#toggleTouchStart">
     <%# <button class="btn-magnifying" data-action="focus->searchBar#visibility blur->searchBar#visibility">
       <i class="fas fa-search" data-searchBar-target="magnify"></i>
     </button> %>
-    <%# <p id="placeholder" data-searchBar-target="placeholder">Search</p> %>
+    <p class="search-header" data-searchBar-target="placeholder">Search</p>
     <%= form_tag root_path, method: :get, class: "d-flex p-0 justify-content-center" do %>
       <%= text_field_tag :city,
         params[:city],
         class: "input-search",
-        placeholder: "Search by City",
+        placeholder: "",
         id: "basic-addon2", autocomplete: "off",
-        data: { searchBar_target: "inputl"},
-        autofocus: true
+        data: {searchBar_target: "inputc", action: "blur->searchBar#toggleBlurCity focus->searchBar#toggleFocusCity"}
+        # , autofocus: true
+        # data: {searchBar_target: "inputc"},
       %>
       <%= text_field_tag :venue,
         params[:venue],
         class: "input-search",
-        placeholder: "Search by Venue",
+        placeholder: "",
         id: "basic-addon2", autocomplete: "off",
-        data: {searchBar_target: "inputr"}
+        data: {searchBar_target:"inputv", action: "blur->searchBar#toggleBlurVenue focus->searchBar#toggleFocusVenue"}
       %>
     <%= submit_tag "Search", class: "btn btn-primary d-none", id: "basic-addon2" %>
     <% end %>
   </div>
-   <%# <button class="btn-search" data-searchBar-target="magnify" data-action="click->searchBar#visibility">
+   <%# <button class="btn-search d-none" data-searchBar-target="magnify" data-action="click->searchBar#visibleAction">
     <i class="fas fa-search"></i>
   </button> %>
 </div>
