@@ -1,7 +1,9 @@
-<div class="venue-photo">
-    <%= link_to city_path(city) do %>
-      <% @photo_url = Unsplash::Photo.search(city.name)[1][:urls].small%>
-      <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
-      <%= image_tag @photo_url %>
-    <% end %>
+<div class="carousel-item <%= 'active' if i == 0 %>">
+  <div class="venue-photo">
+      <%= link_to city_path(city) do %>
+        <% @photo_url = Unsplash::Photo.search(city.name)[i][:urls].small%>
+        <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+        <%= image_tag @photo_url %>
+      <% end %>
+  </div>
 </div>
