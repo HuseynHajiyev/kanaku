@@ -34,10 +34,11 @@
   bottom: 0;
   left: 0;
   font-size: 12px;
+  margin-left: 16px;
 }
 
 #journey-button-holder {
-  position: relative
+  // position: relative
 }
 
 .journey-venue-card-description {
@@ -48,6 +49,6 @@
 }
 
 .stick-bottom {
-  position: absolute;
+  // position: absolute;
   bottom: 0;
 }
