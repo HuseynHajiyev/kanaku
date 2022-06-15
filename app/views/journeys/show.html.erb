@@ -21,11 +21,11 @@
     <div class="venue-journey-card">
       <div class="venue-card-image"  style="<%= @style %>"></div>
       <div class="journey-venue-card-description">
-        <p class="venue-card-description-header"><%= journey_venue.name %></p>
-        <p><%= journey_venue.address %></p>
+        <p class="venue-card-description-header"><%= journey_venue.venue.name %></p>
+        <p><%= journey_venue.venue.address %></p>
         <div class="stick-bottom">
           <div id="journey-button-holder">
-            <%= link_to "👁", venue_path(journey_venue), id: "journey-preview" %>
+            <%= link_to "👁", venue_path(journey_venue.venue), id: "journey-preview" %>
             <%# <%= link_to "Remove", journey_venue_path(venue), method: :delete, id: "journey-reject-button"%>
             <%= link_to journey_venue_path(journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue" do %>
               <i class="gg-trash"></i>

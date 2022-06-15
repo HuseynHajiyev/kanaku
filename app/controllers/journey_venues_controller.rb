@@ -21,7 +21,7 @@ class JourneyVenuesController < ApplicationController
     @journey_venue = JourneyVenue.find(params[:id])
     @venue = @journey_venue.venue
     @journey_venue.destroy
-    redirect_to venue_path(@venue)
+    redirect_to journey_path(@journey_venue.journey)
   end
   # def find_venue
   #   @venue = Venue.find(params[:venue_id])
