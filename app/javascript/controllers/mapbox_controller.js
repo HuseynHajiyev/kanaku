@@ -113,7 +113,7 @@ export default class extends Controller {
     }
     instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
       data.duration / 60
-    )} min 🚶‍♂️ </strong></p><ol>${tripInstructions}</ol>`;
+    )} min 🚶‍♂️ </strong></p><ul>${tripInstructions}</ul>`;
 
 
   }
