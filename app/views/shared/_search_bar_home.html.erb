@@ -7,8 +7,9 @@
     <%= form_tag root_path, method: :get, class: "d-flex p-0 justify-content-center" do %>
       <%= text_field_tag :city,
         params[:city],
-        class: "input-search",
+        class: "input-search hidden-value",
         placeholder: "",
+        value: "",
         id: "basic-addon2", autocomplete: "off",
         data: {searchBar_target: "inputc", action: "blur->searchBar#toggleBlurCity focus->searchBar#toggleFocusCity"}
         # , autofocus: true
@@ -16,7 +17,8 @@
       %>
       <%= text_field_tag :venue,
         params[:venue],
-        class: "input-search",
+        class: "input-search hidden-value",
+        value: "",
         placeholder: "",
         id: "basic-addon2", autocomplete: "off",
         data: {searchBar_target:"inputv", action: "blur->searchBar#toggleBlurVenue focus->searchBar#toggleFocusVenue"}

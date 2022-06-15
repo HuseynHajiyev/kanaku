@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["mapb", "gridButton", "venueList"]
 
   connect() {
-    console.log("Controller connected!")
+    // console.log("Controller connected!")
   }
 
   displayToggle() {
