@@ -2,8 +2,7 @@
   <div class="container show-container" data-cityShow-target="window" data-action="">
     <% @photo_url = Unsplash::Photo.search(@city.name)[0][:urls].raw%>
     <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
-    <% @style = "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-                                    url(#{@photo_url});" %>
+    <% @style = "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(#{@photo_url});" %>
     <div class="city-card-image" style="<%= @style %>">
       <p class="city-show-card-city-name" id="city"><%= @city.name %>, <%= @city.name_country %></p>
     </div>
@@ -11,7 +10,7 @@
       <div class="category-cards-container">
         <% categories = %w[sites restaurants bars parks] %>
         <% 4.times do |i| %>
-          <h2 class="flex-center py-3"><strong><%= categories[i].capitalize %></strong></h2>
+          <h2 class="flex-center py-3" id="city-h2"><strong><%= categories[i].capitalize %></strong></h2>
           <div class="category-card">
             <% @venues.first(2).each do |venue|%>
               <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>

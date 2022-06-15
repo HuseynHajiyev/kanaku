@@ -24,8 +24,9 @@
   bottom: 0px;
   left: 12px;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 900;
   color: white;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .category-cards-container {
@@ -38,7 +39,13 @@
   width: 100vw;
   height: 24vh;
   padding: 16px 0;
+  // background-color: #445C3C;
+  // box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+#city-h2 {
   background-color: #445C3C;
+  color: white;
 }
 
 .venue-mini {
@@ -58,7 +65,7 @@
   font-size: 16px;
   text-shadow: 0 0.5px #D3D3D3;
   font-weight: 900;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
 
 
@@ -83,6 +90,7 @@
   justify-content: center;
   text-align: center;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .city-show-card-country-name {

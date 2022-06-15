@@ -26,21 +26,28 @@
       <%# <% end %>
     <div class="venue-description-container">
       <div>
-        <%= link_to "📌 #{@venue.city.name}", city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" %>
+        <%= link_to city_path(@venue.city), class: "mt-3 venue-show-card-city-name", id: "country" do %>
+          <p> <span id="pin">📌</span> <%= @venue.city.name %></p>
+        <% end %>
         <h6> <%= @venue.address %></h6>
       </div>
-      <br>
       <p><%= @venue.description %></p>
     </div>
   </div>
   <div class="venue-button-container" id="">
     <%# <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
     <a href="" class="btn btn-success" id="accept-venue"></a> %>
-    <%= link_to "Back to city", city_path(@venue.city), class: "btn btn-success", id: "accept-venue" %>
+    <%= link_to city_path(@venue.city), class: "btn btn-success", id: "accept-venue" do %>
+      <i class="gg-arrow-left"></i>
+    <% end %>
     <% if @journey_venue %>
-      <%= link_to 'Remove Location', journey_venue_path(@journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue" %>
+      <%= link_to journey_venue_path(@journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue" do %>
+        <i class="gg-trash"></i>
+      <% end %>
     <% else %>
-      <%= link_to 'Add to Journey', venue_journey_venues_path(@venue), method: :post, class: "btn btn-success", id: "accept-venue"  %>
+      <%= link_to venue_journey_venues_path(@venue), method: :post, class: "btn btn-success", id: "accept-venue" do %>
+        <i class="gg-add-r"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
