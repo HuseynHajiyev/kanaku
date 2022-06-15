@@ -28,7 +28,7 @@
         <div class="d-flex align-items-end">
             <%= link_to "Preview", preview_path(@journey), class: "btn journey-button" %>
             <%= link_to journey_venue_path(JourneyVenue.find_by(journey: @journey, venue: venue)), method: :delete do %>
-            <i class="fa fa-trash"></i>
+            <p class="trash" > 🗑 </p>
             <% end %>
         </div>
       </div>
