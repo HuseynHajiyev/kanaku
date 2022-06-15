@@ -1,10 +1,10 @@
 module MetaTagsHelper
   def meta_title
-    content_for?(:meta_title) ? content_for(:meta_title) : DEFAULT_META["meta_title"]
+    content_for?(:meta_title) ? content_for(:meta_title) : "Kanaku - Connecting travellers to their next adventure"
   end
 
   def meta_description
-    content_for?(:meta_description) ? content_for(:meta_description) : DEFAULT_META["meta_description"]
+    content_for?(:meta_description) ? content_for(:meta_description) : "Kanaku is an app which allows users to find the best places to be in new cities around the world."
   end
 
   def meta_image
