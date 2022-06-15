@@ -2,7 +2,7 @@
 <div data-controller="mapDisplay">
   <%# <div class="container"> %>
     <div class="map-border" data-mapDisplay-target="mapb">
-      <div style="width: 100%; height: 100vh;" class="map"
+      <div style="width: 100vw; height: 100vh;" class="map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -11,28 +11,16 @@
   </div>
   <div class="venues d-none" data-mapDisplay-target="venueList">
     <% @cities.each do |city| %>
-      <div class="homepage-venue-card">
-        <div class="venue-photo">
-          <% if city.photos.attached? %>
-            <% city.photos.each do |photo| %>
-              <%= link_to city_path(city) do %>
-                <%= cl_image_tag photo.key, crop: :fill %>
-              <% end %>
-            <% end %>
-          <% else %>
-            <%= link_to city_path(city) do %>
-              <% @photo_url = Unsplash::Photo.search(city.name)[1][:urls].small%>
-              <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
-              <%= image_tag @photo_url %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="container">
-          <div class="venue-name">
-            <%= city.name %>
-          </div>
-          <div class="venue-description">
-            <%= city.description %>
+      <div class="homepage-card-container">
+        <div class="location-card">
+          <%= render "city_card_photo", city: city %>
+          <div class="description-container">
+            <div class="venue-name">
+              <%= city.name %>
+            </div>
+            <div class="venue-description">
+              <%= city.description %>
+            </div>
           </div>
         </div>
       </div>

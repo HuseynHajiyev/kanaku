@@ -5,7 +5,7 @@
 // @import "navbar";
 @import "venue_journey_card";
 @import "user_card";
-@import "city_view";
+@import "city_show";
 @import "venue_show_card";
 @import "homepage_map";
 @import "floating_button";
@@ -15,6 +15,7 @@
 @import "search_bar";
 @import "new_navbar";
 @import "direction_button";
+@import "mapbox";
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Space+Mono&display=swap');
@@ -22,4 +23,8 @@
 
 body {
   background-color: #FAF9F6;
+}
+
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 }

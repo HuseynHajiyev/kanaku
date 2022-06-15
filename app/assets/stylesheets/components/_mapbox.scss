@@ -1,0 +1,11 @@
+.mapboxgl-ctrl-geolocate {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  z-index: -1;
+}
+
+.mapboxgl-map {
+  height: 100vh;
+  width: 100vw;
+}

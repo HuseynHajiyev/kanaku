@@ -16,19 +16,23 @@ export default class extends Controller {
 
   toggleFocusCity = () => {
     this.inputcTarget.classList.add("active")
+    this.inputcTarget.classList.remove("hidden-value")
   }
 
   toggleFocusVenue = () => {
     this.inputvTarget.classList.add("active")
+    this.inputvTarget.classList.remove("hidden-value")
   }
 
   toggleBlurCity = () => {
     this.inputcTarget.classList.remove("active")
+    this.inputcTarget.classList.add("hidden-value")
     setTimeout(() => {  this.#bothAreblurAction() }, 200);
   }
 
   toggleBlurVenue = () => {
     this.inputvTarget.classList.remove("active")
+    this.inputvTarget.classList.add("hidden-value")
     setTimeout(() => {  this.#bothAreblurAction() }, 200);
   }
 

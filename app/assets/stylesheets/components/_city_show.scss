@@ -117,3 +117,13 @@
   text-align: center;
   align-items: center;
 }
+
+.city-show-venues-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  max-height: 47vh;
+  overflow: scroll;
+  // overflow: scroll;
+  // height: 30vh;
+}

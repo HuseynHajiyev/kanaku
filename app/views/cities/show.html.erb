@@ -1,15 +1,5 @@
-<% empty = true %>
-<% @venues.each do |venue| %>
-  <% if venue.photos.attached? %>
-    <% empty = false %>
-  <% end %>
-<% end %>
-<div class="container show-container">
-  <% unless empty %>
-    <% @venues.each do |venue| %>
-      <%= cl_image_tag venue.photos.first.key, class: "venue-mini" %>
-    <% end %>
-  <% else %>
+<div data-controller="cityShow">
+  <div class="container show-container" data-cityShow-target="window" data-action="">
     <% @photo_url = Unsplash::Photo.search(@city.name)[0][:urls].raw%>
     <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
     <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
@@ -17,26 +7,26 @@
     <div class="city-card-image" style="<%= @style %>">
       <p class="city-show-card-city-name" id="city"><%= @city.name %>, <%= @city.name_country %></p>
     </div>
-  <% end %>
-  <div class="venue-show-card my-8">
-    <div class="category-cards-container">
-      <% categories = %w[sites restaurants bars parks] %>
-      <% 4.times do |i| %>
-        <h2 class="flex-center py-3"><strong><%= categories[i].capitalize %></strong></h2>
-        <div class="category-card">
-          <% @venues.first(2).each do |venue|%>
-            <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
-            <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
-            <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                                           url(#{@photo_url});" %>
-            <%= link_to venue_path(venue), class: "fill" do %>
-              <div class="city-card-image-small" style="<%= @style %>">
-                <p class="city-show-card-city-name-small"><%= venue.name %></p>
-              </div>
+    <div class="city-show-venues-container my-8">
+      <div class="category-cards-container">
+        <% categories = %w[sites restaurants bars parks] %>
+        <% 4.times do |i| %>
+          <h2 class="flex-center py-3"><strong><%= categories[i].capitalize %></strong></h2>
+          <div class="category-card">
+            <% @venues.first(2).each do |venue|%>
+              <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
+              <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
+              <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                                            url(#{@photo_url});" %>
+              <%= link_to venue_path(venue), class: "fill" do %>
+                <div class="city-card-image-small" style="<%= @style %>">
+                  <p class="city-show-card-city-name-small"><%= venue.name %></p>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

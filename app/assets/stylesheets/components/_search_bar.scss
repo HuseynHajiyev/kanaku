@@ -2,22 +2,21 @@
   width: fit-content;
   height: fit-content;
   display: flex;
-  z-index: 99;
-  position: fixed;
-  top: 100px;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 
 .search-box{
   width: fit-content;
   height: fit-content;
-  position: relative;
   background-color: #445C3C;
   border-radius: 24px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transition: opacity 500ms;
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .box--hidden {
@@ -124,4 +123,8 @@
   // padding-right: 24px;
   padding-left: 8px;
   border-radius: 0 24px 24px 0;
+}
+
+.hidden-value {
+  color: transparent;
 }
