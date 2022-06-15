@@ -12,6 +12,10 @@
 .mapboxgl-popup img {
   max-width: 150px;
   height: 125px;
+  border-color: #445C3C;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
 }
 
 .mapboxgl-popup-content {
