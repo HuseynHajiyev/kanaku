@@ -1,5 +1,5 @@
 ﻿meta_product_name: "Kanaku"
 meta_title: "Kanaku - Connecting travellers to their next adventure"
 meta_description: "Kanaku is an app which allows users to find the best places to be in new cities around the world."
-meta_image: "Kanaku.jpg" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@twitter"   # required for Twitter Cards
