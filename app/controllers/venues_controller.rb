@@ -7,6 +7,8 @@ class VenuesController < ApplicationController
       @journey.save
     end
     @journey_venue = JourneyVenue.find_by(journey: current_user.journeys.last, venue: @venue)
+
+    @markers = [{ lat: @venue.latitude, lng: @venue.longitude, image_url: helpers.asset_url("marker-stroked.svg"), info_window: render_to_string(partial: "pages/info_window", locals: {venue: @venue }) }]
   end
 
   def new
