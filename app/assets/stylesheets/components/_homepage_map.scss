@@ -15,17 +15,22 @@
   border-color: #445C3C;
   border-width: 1px;
   border-style: solid;
+  border-radius: 5px;
+  margin: 5px 0;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 12px, rgba(0, 0, 0, 0.22) 0px 5px 8px;
 }
 
 .mapboxgl-popup-content {
-  height: 200px;
+  height: 225px;
   text-align: center;
   font-family: "Open Sans", sans-serif;
   border-color: #445C3C;
   border-width: 1px;
   border-style: solid;
-  background-color: #FAF9F6;
+  background-color: white;
   width: 200px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .mapboxgl-popup {
