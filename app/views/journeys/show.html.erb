@@ -26,7 +26,9 @@
         <p><%= journey_venue.venue.address %></p>
         <div class="stick-bottom">
           <div id="journey-button-holder">
-            <%= link_to "👁", venue_path(journey_venue.venue), id: "journey-preview" %>
+            <%= link_to venue_path(journey_venue.venue), id: "journey-preview" do %>
+              <i class="gg-eye"></i>
+            <% end %>
             <%# <%= link_to "Remove", journey_venue_path(venue), method: :delete, id: "journey-reject-button"%>
             <%= link_to journey_venue_path(journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue" do %>
               <i class="gg-trash"></i>
