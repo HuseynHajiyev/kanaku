@@ -108,16 +108,72 @@ export default class extends Controller {
     const steps = data.legs[0].steps;
 
     let tripInstructions = '';
-    for (const step of steps) {
-      tripInstructions += `<li>${step.maneuver.instruction}</li>`;
-    }
-    instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
-      data.duration / 60
-    )} min 🚶‍♂️ </strong></p><ul>${tripInstructions}</ul>`;
-
+    // for (const step of steps) {
+    //   tripInstructions += `<div class="d-flex border h-3" id="directions"><span>⬆️</span>${step.maneuver.instruction}</div>`;
+    // }
+    // instructions.innerHTML = `<div id="header>"<strong>Trip duration: ${Math.floor(
+    //   data.duration / 60
+    // )} min 🚶‍♂️ </strong></div><ul>${tripInstructions}</ul>`;
+    setTimeout(this.#directions(steps, instructions, tripInstructions, data), 100);
 
   }
+
+  #directions = (steps, instructions, tripInstructions, data) => {
+    for (const step of steps) {
+      tripInstructions += `<div class="d-flex border h-3 justify-content-start" id="directions"><span>${this.#whichWay(step.maneuver.instruction)}</span>${step.maneuver.instruction}</div>`;
+    }
+    instructions.innerHTML = `<div id="header"><strong>Your trip duration: 🚶‍♂️ ${Math.floor(
+      data.duration / 60
+    )} min </strong></div><ul>${tripInstructions}</ul>`;
+  }
+
+  #whichWay(stepInstruction) {
+    const instruction = stepInstruction.toLowerCase()
+
+    if(instruction.includes("north") || instruction.includes("north")) {
+      return "⬆️"
+    }
+
+    if((instruction.includes("continue"))) {
+      return "⏫"
+    }
+
+    if((instruction.includes("east") || instruction.includes("right")) && (!instruction.includes("northwest") || !instruction.includes("northeast"))) {
+      return  "➡️"
+    }
+
+    if((instruction.includes("northeast"))) {
+      return "↗️"
+    }
+
+    if((instruction.includes("northwest"))) {
+      return "↖️"
+    }
+
+    if((instruction.includes("south")) && (!instruction.includes("southwest") || !instruction.includes("southeast"))) {
+      return  "⬇️"
+    }
+
+    if((instruction.includes("southwest"))) {
+      return "↙️"
+    }
+
+    if((instruction.includes("southeast"))) {
+      return "↘️"
+    }
+
+    if((instruction.includes("southwest"))) {
+      return "↘️"
+    }
+
+    if((instruction.includes("west")) || (instruction.includes("left"))) {
+      return "⬅️"
+    }
+
+    return "🚶"
+  }
 }
+
 
 
 // GEOCODING
