@@ -15,18 +15,18 @@
     <h2>Your Journey</h2>
   </div>
   <% @unsplash_photo_search =  Unsplash::Photo.search("restaurant") %>
-  <% @journey_venues.each do |venue| %>
+  <% @journey_venues.each do |journey_venue| %>
      <% @photo_url = @unsplash_photo_search.sample[:urls].raw%>
     <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
     <% @style = "background-image: url(#{@photo_url});" %>
     <div class="venue-journey-card">
       <div class="venue-card-image"  style="<%= @style %>"></div>
       <div class="journey-venue-card-description">
-        <p class="venue-card-description-header"><%= journey_venue.venue.name %></p>
-        <p><%= journey_venue.venue.address %></p>
+        <p class="venue-card-description-header"><%= journey_venue.name %></p>
+        <p><%= journey_venue.address %></p>
         <div class="stick-bottom">
           <div id="journey-button-holder">
-            <%= link_to venue_path(journey_venue.venue), id: "journey-preview" do %>
+            <%= link_to venue_path(journey_venue), id: "journey-preview" do %>
               <i class="gg-eye"></i>
             <% end %>
             <%# <%= link_to "Remove", journey_venue_path(venue), method: :delete, id: "journey-reject-button"%>
