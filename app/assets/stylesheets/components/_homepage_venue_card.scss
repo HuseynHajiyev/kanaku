@@ -5,14 +5,13 @@
   width: fit-content;
   align-items: center;
   justify-content: center;
-  padding-top: 16px;
+  // padding-top: 16px;
   padding-bottom: 16px;
   margin: 0 auto;
 }
 
 .location-card {
   width: fit-content;
-  border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   margin: 0 auto;
 }
@@ -63,16 +62,19 @@
 
 .venue-description {
   // padding: 24px;
-  border-radius: 0 0 16px 16px;
+  // border-radius: 0 0 16px 16px;
   // color: white;
-  font-weight: 500;
+  // font-weight: 500;
   background: transparent;
+
+  p {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
 }
 
 .venue-photo img {
   max-width: 95vw;
   max-height: 30vh;
-  border-radius: 16px 16px 0 0;
 }
 
 .venues {
