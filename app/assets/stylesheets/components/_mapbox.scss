@@ -1,3 +1,11 @@
+#main-page-map > .mapboxgl-ctrl-geolocate {
+  position: absolute;
+  top: 3.5vh;
+  right: 3vw;
+  z-index: -1;
+}
+
+
 .mapboxgl-ctrl-geolocate {
   position: absolute;
   top: 11vh;
@@ -10,6 +18,14 @@
   height: 92vh;
   // position: absolute;
   // bottom: 0;
+}
+
+
+#main-page-map {
+  width: 100vw;
+  height: 92vh;
+  position: absolute;
+  bottom: 0;
 }
 
 
