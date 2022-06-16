@@ -22,10 +22,10 @@ class JourneyVenuesController < ApplicationController
     @journey_venue = JourneyVenue.find(params[:id])
     @venue = @journey_venue.venue
     @journey_venue.destroy
-    if current_page?(controller: "venues")
-      redirect_to venue_path(@venue)
-    else
+    if params[:journey_id]
       redirect_to journey_path(Journey.find(params[:journey_id][:id]))
+    else
+      redirect_to venue_path(@venue)
     end
   end
 end
