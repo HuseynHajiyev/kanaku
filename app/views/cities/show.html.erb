@@ -8,13 +8,13 @@
     </div>
     <div class="city-show-venues-container my-8">
       <div class="category-cards-container">
-        <% categories = %w[sights restaurants bars parks] %>
+        <% categories = %w[attraction restaurant pub park] %>
         <% 4.times do |i| %>
-          <h2 class="flex-center py-3"><strong><%= categories[i].capitalize %></strong></h2>
-          <% unsplash_photo_search = Unsplash::Photo.search("restaurant") %>
+          <h2 class="flex-center py-3"><strong><%= categories[i].capitalize %>s</strong></h2>
+          <% unsplash_photo_search = Unsplash::Photo.search("#{@city.name} #{categories[i]}") %>
           <div class="category-card">
             <% @venues.first(4).each do |venue|%>
-              <% @photo_url = unsplash_photo_search.sample[:urls].regular%>
+              <% @photo_url = unsplash_photo_search.first(20).sample[:urls].regular%>
               <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
               <% @style = "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
                                             url(#{@photo_url});" %>
