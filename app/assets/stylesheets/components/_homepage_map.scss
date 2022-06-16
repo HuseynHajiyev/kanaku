@@ -43,11 +43,43 @@ body {
 
 #instructions {
   position: absolute;
-  max-height: 50vh;
+  max-height: 75vh;
   width: 100%;
   bottom: 0;
-  padding: 20px;
+  padding: 0;
   background-color: #FAF9F6;
   overflow-y: scroll;
   // height: 40%;
+}
+
+#directions {
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 19px;
+  font-weight: 100 !important;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 10px 10px, rgba(0, 0, 0, 0.05) 0px 5px 5px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+#directions:first-child {
+  margin-top: 0;
+}
+
+#directions span {
+  min-width: 65px;
+  min-height: 30px;
+  font-size: 29px;
+  margin-right: 10px;
+}
+
+#header {
+  padding: 30px;
+  font-size: 24px;
+  font-weight: 900;
+  background-color: #445C3C;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  position: sticky;
+  top: 0;
 }
