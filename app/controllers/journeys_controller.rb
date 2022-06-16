@@ -11,7 +11,7 @@ class JourneysController < ApplicationController
 
     @journey_venues = @journey.venues
 
-    @markers = @journey_venues.geocoded.map do |venue|
+    @markers = @journey_venues.map do |venue|
       {
         lat: venue.latitude,
         lng: venue.longitude,
@@ -25,7 +25,7 @@ class JourneysController < ApplicationController
 
   def preview
     @journey_venues = @journey.venues
-    @markers = @journey_venues.geocoded.map do |venue|
+    @markers = @journey_venues.map do |venue|
       {
         lat: venue.latitude,
         lng: venue.longitude,

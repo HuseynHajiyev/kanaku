@@ -14,8 +14,9 @@
   <div class="journey-header">
     <h2>Your Journey</h2>
   </div>
+  <% @unsplash_photo_search =  Unsplash::Photo.search("restaurant") %>
   <% @journey_venues.each do |venue| %>
-     <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
+     <% @photo_url = @unsplash_photo_search.sample[:urls].raw%>
     <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
     <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                                            url(#{@photo_url});" %>
