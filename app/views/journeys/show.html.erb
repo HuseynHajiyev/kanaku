@@ -16,7 +16,7 @@
   </div>
   <% @unsplash_photo_search =  Unsplash::Photo.search("restaurant") %>
   <% @journey_venues.each do |journey_venue| %>
-     <% @photo_url = @unsplash_photo_search.sample[:urls].raw%>
+    <% @photo_url = @unsplash_photo_search.sample[:urls].raw%>
     <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
     <% @style = "background-image: url(#{@photo_url});" %>
     <div class="venue-journey-card">
