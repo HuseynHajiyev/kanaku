@@ -16,7 +16,7 @@
             <% @venues.first(2).each do |venue|%>
               <% @photo_url = unsplash_photo_search.sample[:urls].regular%>
               <% @photo_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
-              <% @style = "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+              <% @style = "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
                                             url(#{@photo_url});" %>
               <%= link_to venue_path(venue), class: "fill" do %>
                 <div class="city-card-image-small" style="<%= @style %>">
