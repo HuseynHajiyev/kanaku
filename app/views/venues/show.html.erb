@@ -34,6 +34,15 @@
       <p><%= @venue.description %></p>
     </div>
   </div>
+  <div class="px-8">
+    <div class="map-border" data-mapDisplay-target="mapb">
+      <div style="width: 100vw; height: 50vh;" class="map"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
   <div class="venue-button-container" id="">
     <%# <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
     <a href="" class="btn btn-success" id="accept-venue"></a> %>
