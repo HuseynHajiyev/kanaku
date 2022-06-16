@@ -7,7 +7,6 @@ class VenuesController < ApplicationController
       @journey.save
     end
     @journey_venue = JourneyVenue.find_by(journey: current_user.journeys.last, venue: @venue)
-    # raise
   end
 
   def new
