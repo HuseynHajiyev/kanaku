@@ -8,12 +8,15 @@ export default class extends Controller {
   }
 
   displayInstructions() {
+    // if (this.instructionsDivTarget.innerText ==) {
+
+    // }
     this.instructionsDivTarget.classList.toggle("d-none")
     this.buttonTarget.classList.toggle("homepage-map-raised")
-    if (this.buttonTarget.innerText == "Show Instructions") {
-      this.buttonTarget.innerText = "Hide Instructions"
+    if (this.buttonTarget.innerText == "Details") {
+      this.buttonTarget.innerText = "Hide"
     } else {
-      this.buttonTarget.innerText = "Show Instructions"
+      this.buttonTarget.innerText = "Details"
     }
   }
 }

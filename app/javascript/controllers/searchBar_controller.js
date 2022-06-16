@@ -6,10 +6,15 @@ export default class extends Controller {
   connect = () => {
   }
 
+
+
+
+  /* Toggle expanded search bar on focus/blur */
+
   toggleTouchStart = () => {
     this.placeholderTarget.innerHTML = ""
-    this.inputcTarget.placeholder = "Search Cities"
-    this.inputvTarget.placeholder = "Search Venues"
+    this.inputcTarget.placeholder = "Cities"
+    this.inputvTarget.placeholder = "Venues"
     // this.inputcTarget.autofocus = true
     // this.inputcTarget.classList.add("active")
   }
@@ -38,9 +43,7 @@ export default class extends Controller {
 
 
   #bothAreblurAction = () => {
-    console.log("I'm in bothAreBlurAction")
     if(this.#bothAreBlurCheck()) {
-      console.log("I am in conditional")
       this.inputcTarget.placeholder = ""
       this.inputvTarget.placeholder = ""
       // this.inputcTarget.autofocus = false

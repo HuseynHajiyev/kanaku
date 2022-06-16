@@ -8,8 +8,9 @@ class Venue < ApplicationRecord
 
   has_many_attached :photos
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
+  reverse_geocoded_by :latitude, :longitude
   include PgSearch::Model
   pg_search_scope :search_by_name,
                   against: %i[name],
