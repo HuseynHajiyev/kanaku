@@ -24,31 +24,36 @@
 }
 
 #journey-preview {
-  padding: 12px;
+  padding: 12px 14px;
   font-weight: 900;
   color: white;
   border-radius: 5px;
   background-color: #445C3C;
   border-color: #62978E;
-  position: absolute;
+  // position: absolute;
   bottom: 0;
   left: 0;
   font-size: 12px;
-  margin-left: 16px;
+  // margin-left: 16px;
+  padding-top: 16px;
 }
 
-// #journey-button-holder {
-//   // position: relative
-// }
+#journey-button-holder {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 .journey-venue-card-description {
   width: 55%;
   height: 100%;
   padding-left: 16px;
   position: relative;
+  margin-right: 8px;
 }
 
 .stick-bottom {
-  // position: absolute;
+  position: absolute;
   bottom: 0;
+  width: 100%;
 }

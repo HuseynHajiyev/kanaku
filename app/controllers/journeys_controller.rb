@@ -36,6 +36,11 @@ class JourneysController < ApplicationController
 
   def new; end
 
+  def create
+    @journey = Journey.new(journey_params)
+    @journey.save
+  end
+
   def update
     @journey.update(journey_params)
     redirect_to journey_path(@journey)

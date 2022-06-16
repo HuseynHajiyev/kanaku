@@ -24,8 +24,8 @@
           <%= link_to "All Journeys", journeys_path, class: "nav-link" %>
         </li>
         <li class="nav-item active">
-          <% @journey = current_user.journeys.nil? ? Journey.create(user: current_user) : current_user.journeys.last%>
-          <%= link_to "My Journey", journey_path(@journey), class: "nav-link" %>
+          <% @journey = current_user.journeys.nil? ? Journey.create(user: current_user) : current_user.journeys.last %>
+          <%= link_to "My Journey", journey_path(@journey.id), class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Add Venue", new_venue_path, class: "nav-link" %>
