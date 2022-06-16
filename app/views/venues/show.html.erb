@@ -5,7 +5,7 @@
     <% end %>
   <% else %>
     <%# unsplash search result, first photo of city interpolated into the style %>
-    <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
+    <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].regular%>
     <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
     <% @style = "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(#{@photo_url});" %>
     <div class="venue-show-card-image" style="<%= @style %>">
