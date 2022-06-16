@@ -1,3 +1,5 @@
+
+
 .mapboxgl-ctrl-geolocate {
   position: absolute;
   top: 25vh;
@@ -5,19 +7,25 @@
   z-index: -1;
 }
 
-#homepage-map {
-  width: 100vw;
-  height: 92vh;
-  // position: absolute;
-  // bottom: 0;
-}
-
-#homepage-map .mapboxgl-ctrl-geolocate {
+#main-page-map .mapboxgl-ctrl-geolocate {
   position: absolute;
-  top: 7vh;
-  right: 5vw;
+  top: 6.3vh;
+  right: 3vw;
   z-index: -1;
 }
+// #homepage-map {
+//   width: 100vw;
+//   height: 92vh;
+//   // position: absolute;
+//   // bottom: 0;
+// }
+
+// #homepage-map .mapboxgl-ctrl-geolocate {
+//   position: absolute;
+//   top: 7vh;
+//   right: 5vw;
+//   z-index: -1;
+// }
 
 
 .mapboxgl-map {
@@ -25,6 +33,14 @@
   height: 92vh;
   // position: absolute;
   // bottom: 0;
+}
+
+
+#main-page-map {
+  width: 100vw;
+  height: 92vh;
+  position: absolute;
+  bottom: 0;
 }
 
 
