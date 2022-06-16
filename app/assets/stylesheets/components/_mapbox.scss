@@ -8,10 +8,25 @@
 
 .mapboxgl-ctrl-geolocate {
   position: absolute;
-  top: 11vh;
+  top: 25vh;
   right: 5vw;
   z-index: -1;
 }
+
+#homepage-map {
+  width: 100vw;
+  height: 92vh;
+  // position: absolute;
+  // bottom: 0;
+}
+
+#homepage-map .mapboxgl-ctrl-geolocate {
+  position: absolute;
+  top: 7vh;
+  right: 5vw;
+  z-index: -1;
+}
+
 
 .mapboxgl-map {
   width: 100vw;
@@ -32,5 +47,5 @@
 .mapboxgl-canvas {
   position: absolute;
   bottom: 0;
-  left: 0;
+  // left: 0;
 }

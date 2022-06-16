@@ -5,7 +5,7 @@
     <% end %>
   <% else %>
     <%# unsplash search result, first photo of city interpolated into the style %>
-    <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].raw%>
+    <% @photo_url = Unsplash::Photo.search("restaurant").sample[:urls].regular%>
     <% @phto_url = "https://ychef.files.bbci.co.uk/976x549/p04dgkm4.jpg" if @photo_url.nil? || @photo_url.empty?%>
     <% @style = "background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(#{@photo_url});" %>
     <div class="venue-show-card-image" style="<%= @style %>">
@@ -47,17 +47,18 @@
   </div>
 </div>
   <div class="venue-button-container" id="">
+  <%# data-controller="changer" %>
     <%# <a href="" class="btn btn-success" id="accept-venue">Add to previous</a>
     <a href="" class="btn btn-success" id="accept-venue"></a> %>
     <%= link_to city_path(@venue.city), class: "btn btn-success", id: "accept-venue" do %>
       <i class="gg-arrow-left"></i>
     <% end %>
     <% if @journey_venue %>
-      <%= link_to journey_venue_path(@journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue" do %>
+      <%= link_to journey_venue_path(@journey_venue), method: :delete, class: "btn btn-success", id: "reject-venue", data: {changer_target: "reject", action: "click->changer#setAccept"} do %>
         <i class="gg-trash"></i>
       <% end %>
     <% else %>
-      <%= link_to venue_journey_venues_path(@venue), method: :post, class: "btn btn-success", id: "accept-venue" do %>
+      <%= link_to venue_journey_venues_path(@venue), method: :post, class: "btn btn-success", id: "accept-venue", data: {changer_target: "accept", action: "click->changer#setReject"} do %>
         <i class="gg-add-r"></i>
       <% end %>
     <% end %>
