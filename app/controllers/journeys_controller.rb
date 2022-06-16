@@ -40,7 +40,11 @@ class JourneysController < ApplicationController
 
   def create
     @journey = Journey.new(journey_params)
-    @journey.save
+    if @journey.save?
+      redirect_to root_path
+    else
+      render "pages/home"
+    end
   end
 
   def update
@@ -59,6 +63,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:description)
+    params.require(:journey).permit(:description, :user)
   end
 end
