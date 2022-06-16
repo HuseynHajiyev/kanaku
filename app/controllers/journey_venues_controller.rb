@@ -1,5 +1,6 @@
 class JourneyVenuesController < ApplicationController
   # before_action
+  include ActionView::Helpers::UrlHelper
 
   def create
     # if session[:journey].nil?
@@ -21,9 +22,10 @@ class JourneyVenuesController < ApplicationController
     @journey_venue = JourneyVenue.find(params[:id])
     @venue = @journey_venue.venue
     @journey_venue.destroy
-    redirect_to journey_path(@journey_venue.journey)
+    if current_page?(controller: "venues")
+      redirect_to venue_path(@venue)
+    else
+      redirect_to journey_path(Journey.find(params[:journey_id][:id]))
+    end
   end
-  # def find_venue
-  #   @venue = Venue.find(params[:venue_id])
-  # end
 end
