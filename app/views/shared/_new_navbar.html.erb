@@ -23,15 +23,15 @@
         <li class="nav-item active">
           <%= link_to "All Journeys", journeys_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active">
-          <% journey = current_user.journeys.empty? ? Journey.create(user: current_user) : current_user.journeys.last %>
-          <%= link_to "My Journey", journey_path(journey), class: "nav-link" %>
+        <%# <li class="nav-item active"> %>
+          <%# <% journey = current_user.journeys.empty? ? Journey.create(user: current_user) : current_user.journeys.last %>
+          <%# <%= link_to "My Journey", journey_path(journey), class: "nav-link" %>
           <%# <% if current_user.journeys.nil? %>
             <%#= link_to "New Journey", journeys_path(user: current_user), method: :post, class: "nav-link" %>
           <%# else %>
             <%#= link_to "My Journey", journeys_path(current_user.journeys.last), class: "nav-link" %>
           <%# end %>
-        </li>
+        <%# </li> %>
         <li class="nav-item active">
           <%= link_to "Add Venue", new_venue_path, class: "nav-link" %>
         </li>
