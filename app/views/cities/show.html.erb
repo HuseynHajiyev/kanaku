@@ -1,3 +1,4 @@
+<%= render "shared/journey_button" %>
 <div data-controller="cityShow">
   <div class="container show-container" data-cityShow-target="window" data-action="">
     <% @photo_url = Unsplash::Photo.search(@city.name)[0][:urls].regular%>
