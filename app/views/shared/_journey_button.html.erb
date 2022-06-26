@@ -1,2 +1,9 @@
 <% journey = current_user.journeys.empty? ? Journey.create(user: current_user) : current_user.journeys.last %>
-<%= link_to "My Journey", journey_path(journey), class: "btn", id: "journey-button" %>
+<a href="<%= journey_path(journey) %>" class="btn journey-button">
+  My Journey
+  <% if journey.venues.count > 0 %>
+    <p id="journey-notification">
+      <%= journey.venues.count %>
+    </p>
+  <% end %>
+</a>

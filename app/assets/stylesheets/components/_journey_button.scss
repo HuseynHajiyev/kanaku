@@ -1,15 +1,29 @@
-#journey-button {
-  position: absolute;
+.journey-button {
+  position: fixed;
   display: flex;
   align-items: center;
-  border-radius: 0 0 16px 16px;
+  border-radius: 16px 16px 0 0;
   box-shadow: rgba(0, 0, 0, 0.30) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   font-weight: 800;
-  padding: 20px;
-  left: -10vw;
+  padding: 18px;
+  right: -10vw;
   top: 50%;
-  height: 8vh;
-  float: left;
+  height: 6vh;
   z-index: 1;
   transform: rotate(-90deg);
+  border: 1px solid black;
+}
+
+.journey-button-container {
+  position: relative;
+}
+
+#journey-notification {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
 }
