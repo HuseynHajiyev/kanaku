@@ -32,6 +32,11 @@
   <body>
     <%= render 'shared/new_navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="screen-too-large">
+      <h1>Your screen is too large! Switch to mobile for best user experience.</h1>
+    </div>
+    <div class="mobile">
+      <%= yield %>
+    </div>
   </body>
 </html>
